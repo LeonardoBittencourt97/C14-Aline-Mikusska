@@ -1,0 +1,226 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+:root {
+  --bg-primary: #FBFBF9;
+  --bg-card: #FFFFFF;
+  --bg-secondary: #F5EEF6;
+  --text-main: #000000;
+  --text-muted: #594D5B;
+  --brand-black: #000000;
+  --brand-lavender: #C897CE;
+  --brand-lavender-dark: #A56FA8;
+  --brand-lavender-light: #F7EFF8;
+  --brand-purple-dark: #3F2345;
+  --brand-graphite: #1A1A1A;
+  --brand-offwhite: #FBFBF9;
+  --accent: #C897CE;
+  --accent-hover: #B177B8;
+  --accent-light: #FBF5FC;
+  --accent-dark: #6D3674;
+  --border-subtle: rgba(200, 151, 206, 0.35);
+}
+
+html.dark {
+  --bg-primary: #1A1A1A;
+  --bg-card: #2B182F;
+  --bg-secondary: #221226;
+  --text-main: #FBFBF9;
+  --text-muted: #D3C6D6;
+  --brand-black: #000000;
+  --brand-lavender: #C897CE;
+  --brand-lavender-dark: #A56FA8;
+  --brand-lavender-light: #3F2345;
+  --brand-purple-dark: #3F2345;
+  --brand-graphite: #1A1A1A;
+  --brand-offwhite: #FBFBF9;
+  --accent: #C897CE;
+  --accent-hover: #D8AFD9;
+  --accent-light: #351C3A;
+  --accent-dark: #A56FA8;
+  --border-subtle: rgba(200, 151, 206, 0.3);
+}
+
+html {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-body), sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tipografia de Títulos e Cabeçalhos: Arima (Arima Madurai) */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading), cursive, serif;
+  letter-spacing: 0.01em;
+}
+
+/* Tipografia de Leitura: Mulish */
+.font-body {
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Bordas sutis editoriais */
+.editorial-border {
+  border-color: var(--border-subtle);
+}
+
+.editorial-border-b {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.editorial-border-t {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.editorial-border-l {
+  border-left: 1px solid var(--border-subtle);
+}
+
+.editorial-border-r {
+  border-right: 1px solid var(--border-subtle);
+}
+
+/* Marcador geométrico estilo editorial */
+.bullet-indicator {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+/* Botão Pill */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-size: 0.9375rem;
+  transition: all 0.3s cubic-bezier(0.3, 0.86, 0.36, 0.95);
+}
+
+/* Underline expansivo ao passar o mouse */
+.editorial-link {
+  position: relative;
+  display: inline-block;
+}
+
+.editorial-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.editorial-link:hover::after {
+  width: 100%;
+}
+
+/* Pulso sutil no botão flutuante de WhatsApp */
+@keyframes pulseWhatsApp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.pulse-whatsapp {
+  animation: pulseWhatsApp 2.2s infinite;
+}
+
+/* Animação de Marquee Contínuo */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Animações de Fade-in, Scroll Reveal, Hover Effects */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Transições suaves de hover */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}

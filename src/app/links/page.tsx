@@ -1,0 +1,309 @@
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { OFFICE_INFO, LAWYER_PROFILE } from "@/lib/data";
+import { MessageSquare, Globe, MapPin, ShieldCheck, ArrowUpRight, Scale, Briefcase, Award } from "lucide-react";
+import { InstagramIcon, LinkedinIcon } from "@/components/SocialIcons";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aline-mikusska-advocacia.vercel.app";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: "Canais Oficiais & Links | Aline Pacheco Mikusska Advocacia",
+  description:
+    "Acesse rapidamente o WhatsApp oficial da Dra. Aline Pacheco Mikusska, Instagram, localização no Bairro Alto em Curitiba/PR e website institucional.",
+  alternates: {
+    canonical: `${siteUrl}/links`,
+  },
+  openGraph: {
+    title: "Canais Oficiais & Links | Aline Pacheco Mikusska Advocacia",
+    description: "Atendimento acolhedor, ágil e estratégico em Família, Cível, Criminal e Previdenciário em Curitiba/PR.",
+    url: `${siteUrl}/links`,
+    images: [{ url: "/og-image_optimized_300.jpeg", width: 1200, height: 630 }],
+  },
+};
+
+export default function LinksPage() {
+  const quickLinks = [
+    {
+      id: "whatsapp",
+      title: "Atendimento WhatsApp Direto",
+      subtitle: "(41) 98494-0372 • Fale com a Dra. Aline Mikusska",
+      href: OFFICE_INFO.whatsappUrl,
+      icon: MessageSquare,
+      highlight: true,
+    },
+    {
+      id: "website",
+      title: "Website Oficial Institucional",
+      subtitle: "Conheça nossas áreas de atuação, sede e artigos",
+      href: "/",
+      icon: Globe,
+      highlight: false,
+    },
+    {
+      id: "instagram",
+      title: "Instagram Oficial",
+      subtitle: "@alinepachecomikusska • Conteúdo jurídico diário",
+      href: OFFICE_INFO.instagramUrl,
+      icon: InstagramIcon,
+      highlight: false,
+    },
+    {
+      id: "linkedin",
+      title: "Conectar no LinkedIn",
+      subtitle: "Perfil profissional da Dra. Aline Pacheco Mikusska",
+      href: OFFICE_INFO.linkedinUrl,
+      icon: LinkedinIcon,
+      highlight: false,
+    },
+    {
+      id: "maps",
+      title: "Localização da Sede / GPS",
+      subtitle: "R. José de Oliveira Franco, 708 - Bairro Alto, Curitiba/PR",
+      href: "https://maps.google.com/?q=R.+Jos%C3%A9+de+Oliveira+Franco,+708+-+Bairro+Alto,+Curitiba+-+PR,+82820-110",
+      icon: MapPin,
+      highlight: false,
+    },
+  ];
+
+  const specialties = [
+    "Direito de Família",
+    "Direito Cível & Contratos",
+    "Direito Criminal & Custódia",
+    "Direito Previdenciário (INSS)",
+  ];
+
+  return (
+    <main className="min-h-[100dvh] lg:h-screen lg:max-h-screen lg:overflow-hidden w-screen max-w-full bg-[#FFFFFF] text-[#000000]">
+      {/* ===================== VERSÃO DESKTOP (Split Screen 50/50 - Sem Scroll) ===================== */}
+      <div className="hidden lg:grid lg:grid-cols-2 h-full w-full overflow-hidden">
+        
+        {/* LADO ESQUERDO: Fundo Escuro com Logo e Identidade Visual */}
+        <div className="relative bg-[#1A1A1A] text-white flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden border-r border-[#C897CE]/30">
+          <div className="absolute inset-0 pointer-events-none opacity-20">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="grid-links-desktop" width="50" height="50" patternUnits="userSpaceOnUse">
+                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#C897CE" strokeWidth="0.75" />
+                  <circle cx="0" cy="0" r="1.5" fill="#C897CE" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid-links-desktop)" />
+            </svg>
+          </div>
+
+          <div className="relative z-10 flex items-center justify-between">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#C897CE]/40 bg-white/5 backdrop-blur-md text-xs font-heading tracking-wider text-[#C897CE]">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#C897CE]" />
+              <span>Mais de 9 Anos de Prática Jurídica</span>
+            </div>
+            <span className="text-[0.6875rem] font-heading uppercase tracking-widest text-[#C897CE]">
+              Curitiba - PR
+            </span>
+          </div>
+
+          <div className="relative z-10 my-auto py-4 flex flex-col items-center text-center w-full">
+            <div className="relative w-full max-w-[420px] h-48 xl:h-56 mb-4">
+              <Image
+                src="/logo_sem_fundo_usarnomodoescuro.png"
+                alt={OFFICE_INFO.name}
+                fill
+                priority
+                className="object-contain drop-shadow-lg"
+                sizes="(min-width: 1024px) 420px, 300px"
+              />
+            </div>
+
+            <p className="text-sm xl:text-base text-gray-300 font-body max-w-md mx-auto leading-relaxed mt-2">
+              {OFFICE_INFO.tagline}
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-2 mt-6 max-w-lg">
+              {specialties.map((spec, i) => (
+                <span
+                  key={i}
+                  className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 font-body"
+                >
+                  {spec}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative z-10 flex items-center justify-between text-xs text-gray-400 font-body pt-4 border-t border-white/10">
+            <p>{OFFICE_INFO.addressShort}</p>
+            <p className="text-[0.6875rem] text-[#C897CE]">Provimento 205/2021 CFOAB</p>
+          </div>
+        </div>
+
+        {/* LADO DIREITO: Links Rápidos */}
+        <div className="bg-[#FFFFFF] flex flex-col justify-between p-6 xl:p-8 h-full overflow-y-auto">
+          <div>
+            <div className="flex items-center justify-between pb-4 border-b border-gray-200 mb-6">
+              <div>
+                <span className="text-xs uppercase tracking-widest text-[#A56FA8] font-heading font-semibold block">
+                  Acesso Imediato
+                </span>
+                <h1 className="text-2xl font-heading font-bold text-[#000000]">
+                  Canais Oficiais
+                </h1>
+              </div>
+              <Link
+                href="/"
+                className="text-xs font-heading text-[#A56FA8] hover:text-[#000000] transition-colors flex items-center gap-1 font-semibold"
+              >
+                <span>Acessar Site</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            <div className="space-y-3">
+              {quickLinks.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className={`group flex items-center justify-between p-4 rounded-2xl border transition-all duration-300 ${
+                      item.highlight
+                        ? "bg-[#C897CE] text-white border-[#C897CE] shadow-md hover:bg-[#B177B8] hover:scale-[1.01]"
+                        : "bg-[#FBFBF9] hover:bg-[#F5EEF6] border-gray-200 text-[#000000] hover:border-[#C897CE]/50"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <div
+                        className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110 ${
+                          item.highlight ? "bg-white/20 text-white" : "bg-white border border-gray-200 text-[#A56FA8]"
+                        }`}
+                      >
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h2 className="font-heading font-bold text-sm tracking-wide leading-tight">
+                          {item.title}
+                        </h2>
+                        <p
+                          className={`text-xs mt-0.5 font-body ${
+                            item.highlight ? "text-white/90" : "text-gray-500"
+                          }`}
+                        >
+                          {item.subtitle}
+                        </p>
+                      </div>
+                    </div>
+                    <ArrowUpRight
+                      className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
+                        item.highlight ? "text-white" : "text-gray-400 group-hover:text-[#A56FA8]"
+                      }`}
+                    />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="pt-4 border-t border-gray-200 text-center">
+            <p className="text-xs text-gray-500 font-body">
+              © {new Date().getFullYear()} {OFFICE_INFO.name} • Todos os direitos reservados
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ===================== VERSÃO MOBILE ===================== */}
+      <div className="lg:hidden relative flex flex-col justify-between min-h-[100dvh] w-full px-4 py-6 overflow-y-auto bg-[#FFFFFF]">
+        <div className="w-full">
+          {/* Topo Mobile */}
+          <div className="flex flex-col items-center text-center pt-2 pb-6 border-b border-gray-100">
+            <div className="relative h-20 w-48 mb-3">
+              <Image
+                src="/logo_sem_fundo_usarnomodoclaro.png"
+                alt={OFFICE_INFO.name}
+                fill
+                priority
+                className="object-contain"
+                sizes="200px"
+              />
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5EEF6] border border-[#C897CE]/40 text-xs font-heading text-[#6D3674] mb-2 font-medium">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#A56FA8]" />
+              <span>Mais de 9 Anos de Prática Jurídica</span>
+            </div>
+            <p className="text-xs text-gray-600 font-body max-w-xs mx-auto leading-relaxed">
+              {OFFICE_INFO.tagline}
+            </p>
+          </div>
+
+          {/* Links Mobile */}
+          <div className="space-y-3 pt-6">
+            {quickLinks.map((item) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className={`group flex items-center justify-between p-3.5 rounded-2xl border transition-all duration-300 ${
+                    item.highlight
+                      ? "bg-[#C897CE] text-white border-[#C897CE] shadow-md active:scale-95"
+                      : "bg-[#FBFBF9] hover:bg-[#F5EEF6] border-gray-200 text-[#000000]"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                        item.highlight ? "bg-white/20 text-white" : "bg-white border border-gray-200 text-[#A56FA8]"
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h2 className="font-heading font-bold text-sm leading-tight">{item.title}</h2>
+                      <p
+                        className={`text-[0.6875rem] mt-0.5 font-body line-clamp-1 ${
+                          item.highlight ? "text-white/90" : "text-gray-500"
+                        }`}
+                      >
+                        {item.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-current flex-shrink-0" />
+                </a>
+              );
+            })}
+          </div>
+
+          {/* Especialidades no Mobile */}
+          <div className="mt-8 p-4 rounded-2xl bg-[#F5EEF6] border border-[#C897CE]/30 text-center">
+            <span className="text-[0.6875rem] font-heading uppercase tracking-widest text-[#6D3674] font-bold block mb-2">
+              Áreas de Atuação
+            </span>
+            <div className="flex flex-wrap justify-center gap-1.5">
+              {specialties.map((spec, i) => (
+                <span
+                  key={i}
+                  className="text-[0.6875rem] px-2.5 py-1 rounded-full bg-white text-gray-700 font-body border border-gray-200"
+                >
+                  {spec}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Rodapé Mobile */}
+        <div className="pt-6 mt-6 border-t border-gray-100 text-center text-[0.6875rem] text-gray-500 font-body">
+          <p>{OFFICE_INFO.address}</p>
+          <p className="mt-1 text-gray-400">
+            © {new Date().getFullYear()} {OFFICE_INFO.name}
+          </p>
+        </div>
+      </div>
+    </main>
+  );
+}
