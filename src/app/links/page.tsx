@@ -213,95 +213,125 @@ export default function LinksPage() {
         </div>
       </div>
 
-      {/* ===================== VERSÃO MOBILE ===================== */}
-      <div className="lg:hidden relative flex flex-col justify-between min-h-[100dvh] w-full px-4 py-6 overflow-y-auto bg-[#FFFFFF]">
-        <div className="w-full">
-          {/* Topo Mobile */}
-          <div className="flex flex-col items-center text-center pt-2 pb-6 border-b border-gray-100">
-            <div className="relative h-20 w-48 mb-3">
-              <Image
-                src="/logo_sem_fundo_usarnomodoclaro.png"
-                alt={OFFICE_INFO.name}
-                fill
-                priority
-                className="object-contain"
-                sizes="200px"
-              />
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F4EEF5] border border-[#380D3D]/20 text-xs font-heading text-[#380D3D] mb-2 font-bold">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#380D3D]" />
-              <span>Mais de 9 Anos de Prática Jurídica</span>
-            </div>
-            <p className="text-xs text-gray-600 font-body max-w-xs mx-auto leading-relaxed">
-              {OFFICE_INFO.tagline}
-            </p>
-          </div>
+      {/* ===================== VERSÃO MOBILE (100% Fit Sem Scroll + Linhas Geométricas) ===================== */}
+      <div className="lg:hidden relative flex flex-col justify-between h-[100dvh] max-h-[100dvh] w-full px-4 py-3 sm:py-4 overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#FAF6FB] to-[#F5ECF7]">
+        {/* Linhas Geométricas em Roxo Claro de Fundo */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="purpleGeomGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#C897CE" stopOpacity="0.4" />
+                <stop offset="50%" stopColor="#D8AFD9" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#C897CE" stopOpacity="0.08" />
+              </linearGradient>
+              <linearGradient id="purpleGeomGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#C897CE" stopOpacity="0.35" />
+                <stop offset="100%" stopColor="#A56FA8" stopOpacity="0.1" />
+              </linearGradient>
+            </defs>
 
-          {/* Links Mobile */}
-          <div className="space-y-3 pt-6">
-            {quickLinks.map((item) => {
-              const Icon = item.icon;
-              return (
-                <a
-                  key={item.id}
-                  href={item.href}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className={`group flex items-center justify-between p-3.5 rounded-2xl border transition-all duration-300 ${
-                    item.highlight
-                      ? "bg-[#380D3D] text-white border-[#380D3D] shadow-md active:scale-95"
-                      : "bg-[#FBFBF9] hover:bg-[#F4EEF5] border-gray-200 text-[#000000]"
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                        item.highlight ? "bg-white/20 text-white" : "bg-white border border-gray-200 text-[#380D3D]"
-                      }`}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h2 className="font-heading font-bold text-sm leading-tight">{item.title}</h2>
-                      <p
-                        className={`text-[0.6875rem] mt-0.5 font-body line-clamp-1 ${
-                          item.highlight ? "text-white/90" : "text-gray-500"
-                        }`}
-                      >
-                        {item.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-current flex-shrink-0" />
-                </a>
-              );
-            })}
-          </div>
+            {/* Linhas Diagonais Intersectantes em Roxo Claro */}
+            <line x1="-15%" y1="12%" x2="115%" y2="38%" stroke="url(#purpleGeomGrad1)" strokeWidth="1.25" />
+            <line x1="-15%" y1="42%" x2="115%" y2="18%" stroke="url(#purpleGeomGrad2)" strokeWidth="1" />
+            <line x1="-15%" y1="78%" x2="115%" y2="58%" stroke="url(#purpleGeomGrad1)" strokeWidth="1.25" />
+            <line x1="-15%" y1="92%" x2="115%" y2="72%" stroke="url(#purpleGeomGrad2)" strokeWidth="0.75" />
 
-          {/* Especialidades no Mobile */}
-          <div className="mt-8 p-4 rounded-2xl bg-[#F4EEF5] border border-[#380D3D]/20 text-center">
-            <span className="text-[0.6875rem] font-heading uppercase tracking-widest text-[#380D3D] font-bold block mb-2">
-              Áreas de Atuação
-            </span>
-            <div className="flex flex-wrap justify-center gap-1.5">
-              {specialties.map((spec, i) => (
-                <span
-                  key={i}
-                  className="text-[0.6875rem] px-2.5 py-1 rounded-full bg-white text-gray-700 font-body border border-gray-200"
-                >
-                  {spec}
-                </span>
-              ))}
-            </div>
-          </div>
+            {/* Linhas Geométricas de Precisão Tracejadas */}
+            <line x1="18%" y1="-10%" x2="82%" y2="110%" stroke="url(#purpleGeomGrad1)" strokeWidth="0.75" strokeDasharray="5 5" />
+            <line x1="88%" y1="-10%" x2="12%" y2="110%" stroke="url(#purpleGeomGrad2)" strokeWidth="0.75" strokeDasharray="6 4" />
+
+            {/* Círculos Geométricos Concêntricos em Roxo Claro */}
+            <circle cx="88%" cy="16%" r="80" fill="none" stroke="#C897CE" strokeWidth="1" strokeOpacity="0.25" />
+            <circle cx="88%" cy="16%" r="130" fill="none" stroke="#C897CE" strokeWidth="0.75" strokeOpacity="0.15" strokeDasharray="4 4" />
+            <circle cx="12%" cy="84%" r="90" fill="none" stroke="#C897CE" strokeWidth="1" strokeOpacity="0.25" />
+            <circle cx="12%" cy="84%" r="150" fill="none" stroke="#C897CE" strokeWidth="0.75" strokeOpacity="0.15" strokeDasharray="5 5" />
+
+            {/* Formas Geométricas Arquiteturais Sutis */}
+            <rect x="75%" y="45%" width="60" height="60" fill="none" stroke="#C897CE" strokeWidth="0.75" strokeOpacity="0.2" transform="rotate(45 300 300)" />
+            <rect x="10%" y="30%" width="45" height="45" fill="none" stroke="#C897CE" strokeWidth="0.75" strokeOpacity="0.18" transform="rotate(45 50 200)" />
+          </svg>
         </div>
 
-        {/* Rodapé Mobile */}
-        <div className="pt-6 mt-6 border-t border-gray-100 text-center text-[0.6875rem] text-gray-500 font-body">
-          <p>{OFFICE_INFO.address}</p>
-          <p className="mt-1 text-gray-400">
-            © {new Date().getFullYear()} {OFFICE_INFO.name}
+        {/* Topo Mobile Compacto */}
+        <div className="relative z-10 w-full flex flex-col items-center text-center pt-1 pb-2">
+          <div className="relative h-11 w-36 mb-1.5">
+            <Image
+              src="/logo_sem_fundo_usarnomodoclaro.png"
+              alt={OFFICE_INFO.name}
+              fill
+              priority
+              className="object-contain"
+              sizes="160px"
+            />
+          </div>
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-xs border border-[#C897CE]/40 text-[0.625rem] font-heading text-[#380D3D] mb-1 font-bold shadow-2xs">
+            <ShieldCheck className="w-3 h-3 text-[#380D3D]" />
+            <span>Mais de 9 Anos de Prática Jurídica</span>
+          </div>
+          <p className="text-[0.6875rem] text-gray-600 font-body max-w-xs mx-auto leading-tight line-clamp-1">
+            {OFFICE_INFO.tagline}
           </p>
+        </div>
+
+        {/* Links Mobile Compactos (Ajustados para caber perfeitamente na tela sem scroll) */}
+        <div className="relative z-10 w-full flex-1 flex flex-col justify-center gap-2 py-1 max-w-md mx-auto">
+          {quickLinks.map((item) => {
+            const Icon = item.icon;
+            return (
+              <a
+                key={item.id}
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className={`group flex items-center justify-between p-2.5 rounded-xl border transition-all duration-200 active:scale-[0.98] ${
+                  item.highlight
+                    ? "bg-[#380D3D] text-white border-[#380D3D] shadow-md"
+                    : "bg-white/85 backdrop-blur-xs hover:bg-white border-[#C897CE]/35 text-[#000000] shadow-2xs"
+                }`}
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                      item.highlight ? "bg-white/20 text-white" : "bg-[#F8F2F9] border border-[#C897CE]/30 text-[#380D3D]"
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <h2 className="font-heading font-bold text-xs leading-snug truncate">{item.title}</h2>
+                    <p
+                      className={`text-[0.625rem] font-body truncate ${
+                        item.highlight ? "text-white/85" : "text-gray-500"
+                      }`}
+                    >
+                      {item.subtitle}
+                    </p>
+                  </div>
+                </div>
+                <ArrowUpRight className="w-3.5 h-3.5 text-current flex-shrink-0 ml-1.5" />
+              </a>
+            );
+          })}
+        </div>
+
+        {/* Especialidades & Rodapé no Mobile (Ultra Compactos) */}
+        <div className="relative z-10 w-full pt-1 pb-0.5 space-y-1.5">
+          {/* Micro-pills de Áreas de Atuação */}
+          <div className="flex flex-wrap justify-center gap-1">
+            {specialties.map((spec, i) => (
+              <span
+                key={i}
+                className="text-[0.575rem] px-2 py-0.5 rounded-full bg-white/90 backdrop-blur-xs text-[#380D3D] font-body border border-[#C897CE]/30 font-medium"
+              >
+                {spec}
+              </span>
+            ))}
+          </div>
+
+          {/* Rodapé Mobile Compacto */}
+          <div className="pt-1 border-t border-[#C897CE]/20 text-center text-[0.6rem] text-gray-500 font-body">
+            <p>{OFFICE_INFO.addressShort} • © {new Date().getFullYear()} {OFFICE_INFO.name}</p>
+          </div>
         </div>
       </div>
     </main>
