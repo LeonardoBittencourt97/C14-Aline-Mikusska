@@ -198,7 +198,7 @@ export function About() {
               <button
                 type="button"
                 onClick={handleToggleExpand}
-                className="btn-pill bg-white dark:bg-[#1D0F21] text-[var(--text-main)] border-2 border-[var(--accent)] hover:bg-[var(--accent)] hover:text-white gap-2 py-3 px-6 text-xs sm:text-sm font-semibold shadow-xs hover-lift transition-all cursor-pointer flex items-center"
+                className="btn-pill bg-white text-black border-2 border-[var(--accent)] hover:bg-[var(--accent)] hover:text-white dark:bg-white dark:text-black dark:hover:bg-[var(--accent)] dark:hover:text-white gap-2 py-3 px-6 text-xs sm:text-sm font-semibold shadow-xs hover-lift transition-all cursor-pointer flex items-center"
                 aria-expanded={isExpanded}
               >
                 <span>{isExpanded ? "Ocultar detalhes" : "Conhecer Trajetória & Motivações"}</span>
