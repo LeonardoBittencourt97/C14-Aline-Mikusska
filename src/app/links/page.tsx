@@ -252,29 +252,29 @@ export default function LinksPage() {
           </svg>
         </div>
 
-        {/* Topo Mobile Compacto */}
-        <div className="relative z-10 w-full flex flex-col items-center text-center pt-1 pb-2">
-          <div className="relative h-11 w-36 mb-1.5">
+        {/* Topo Mobile - Logo no tamanho e posição originais */}
+        <div className="relative z-10 w-full flex flex-col items-center text-center pt-2 pb-1">
+          <div className="relative h-20 w-48 mb-2 sm:mb-2.5">
             <Image
               src="/logo_sem_fundo_usarnomodoclaro.png"
               alt={OFFICE_INFO.name}
               fill
               priority
               className="object-contain"
-              sizes="160px"
+              sizes="200px"
             />
           </div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-xs border border-[#C897CE]/40 text-[0.625rem] font-heading text-[#380D3D] mb-1 font-bold shadow-2xs">
-            <ShieldCheck className="w-3 h-3 text-[#380D3D]" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-xs border border-[#C897CE]/40 text-xs font-heading text-[#380D3D] mb-1.5 font-bold shadow-2xs">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#380D3D]" />
             <span>Mais de 9 Anos de Prática Jurídica</span>
           </div>
-          <p className="text-[0.6875rem] text-gray-600 font-body max-w-xs mx-auto leading-tight line-clamp-1">
+          <p className="text-xs text-gray-600 font-body max-w-xs mx-auto leading-tight line-clamp-1">
             {OFFICE_INFO.tagline}
           </p>
         </div>
 
-        {/* Links Mobile Compactos (Ajustados para caber perfeitamente na tela sem scroll) */}
-        <div className="relative z-10 w-full flex-1 flex flex-col justify-center gap-2 py-1 max-w-md mx-auto">
+        {/* Links Mobile - Distribuídos harmoniosamente ocupando o espaço sem folgas mortas */}
+        <div className="relative z-10 w-full flex-1 flex flex-col justify-between py-1.5 sm:py-2.5 max-w-md mx-auto">
           {quickLinks.map((item) => {
             const Icon = item.icon;
             return (
@@ -283,24 +283,24 @@ export default function LinksPage() {
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className={`group flex items-center justify-between p-2.5 rounded-xl border transition-all duration-200 active:scale-[0.98] ${
+                className={`group flex items-center justify-between px-3.5 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl border transition-all duration-200 active:scale-[0.98] ${
                   item.highlight
                     ? "bg-[#380D3D] text-white border-[#380D3D] shadow-md"
-                    : "bg-white/85 backdrop-blur-xs hover:bg-white border-[#C897CE]/35 text-[#000000] shadow-2xs"
+                    : "bg-white/90 backdrop-blur-xs hover:bg-white border-[#C897CE]/35 text-[#000000] shadow-2xs"
                 }`}
               >
-                <div className="flex items-center gap-2.5 min-w-0">
+                <div className="flex items-center gap-3 min-w-0">
                   <div
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                    className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${
                       item.highlight ? "bg-white/20 text-white" : "bg-[#F8F2F9] border border-[#C897CE]/30 text-[#380D3D]"
                     }`}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4.5 h-4.5" />
                   </div>
                   <div className="min-w-0">
-                    <h2 className="font-heading font-bold text-xs leading-snug truncate">{item.title}</h2>
+                    <h2 className="font-heading font-bold text-xs sm:text-sm leading-tight truncate">{item.title}</h2>
                     <p
-                      className={`text-[0.625rem] font-body truncate ${
+                      className={`text-[0.6875rem] font-body truncate mt-0.5 ${
                         item.highlight ? "text-white/85" : "text-gray-500"
                       }`}
                     >
@@ -308,28 +308,33 @@ export default function LinksPage() {
                     </p>
                   </div>
                 </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-current flex-shrink-0 ml-1.5" />
+                <ArrowUpRight className="w-4 h-4 text-current flex-shrink-0 ml-2" />
               </a>
             );
           })}
         </div>
 
-        {/* Especialidades & Rodapé no Mobile (Ultra Compactos) */}
-        <div className="relative z-10 w-full pt-1 pb-0.5 space-y-1.5">
-          {/* Micro-pills de Áreas de Atuação */}
-          <div className="flex flex-wrap justify-center gap-1">
-            {specialties.map((spec, i) => (
-              <span
-                key={i}
-                className="text-[0.575rem] px-2 py-0.5 rounded-full bg-white/90 backdrop-blur-xs text-[#380D3D] font-body border border-[#C897CE]/30 font-medium"
-              >
-                {spec}
-              </span>
-            ))}
+        {/* Especialidades & Rodapé no Mobile (Sem espaço ocioso com os botões) */}
+        <div className="relative z-10 w-full max-w-md mx-auto pt-1 pb-1 space-y-1.5 sm:space-y-2">
+          {/* Card Áreas de Atuação */}
+          <div className="p-2 sm:p-2.5 rounded-xl bg-white/90 backdrop-blur-xs border border-[#C897CE]/35 text-center shadow-2xs">
+            <span className="text-[0.625rem] sm:text-[0.6875rem] font-heading uppercase tracking-widest text-[#380D3D] font-bold block mb-1">
+              Áreas de Atuação
+            </span>
+            <div className="flex flex-wrap justify-center gap-1 sm:gap-1.5">
+              {specialties.map((spec, i) => (
+                <span
+                  key={i}
+                  className="text-[0.625rem] sm:text-[0.6875rem] px-2.5 py-0.5 rounded-full bg-[#FAF6FB] text-[#380D3D] font-body border border-[#C897CE]/30 font-medium"
+                >
+                  {spec}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Rodapé Mobile Compacto */}
-          <div className="pt-1 border-t border-[#C897CE]/20 text-center text-[0.6rem] text-gray-500 font-body">
+          <div className="text-center text-[0.625rem] sm:text-[0.6875rem] text-gray-500 font-body">
             <p>{OFFICE_INFO.addressShort} • © {new Date().getFullYear()} {OFFICE_INFO.name}</p>
           </div>
         </div>
