@@ -8,6 +8,7 @@ export interface OfficeInfo {
   experienceYears: string;
   phone: string;
   whatsapp: string;
+  whatsappNumber: string;
   whatsappFormatted: string;
   whatsappUrl: string;
   instagramUrl: string;
@@ -35,6 +36,7 @@ export const OFFICE_INFO: OfficeInfo = {
   experienceYears: "mais de 9 anos",
   phone: "(41) 98494-0372",
   whatsapp: "5541984940372",
+  whatsappNumber: "5541984940372",
   whatsappFormatted: "(41) 98494-0372",
   whatsappUrl:
     "https://wa.me/5541984940372?text=Ol%C3%A1%2C%20Dra.%20Aline%20Mikusska!%20Vim%20pelo%20site%20e%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica.",

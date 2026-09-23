@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Arima, Mulish } from "next/font/google";
+import { Raleway, Merriweather } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { getLegalServiceSchema } from "@/lib/schema";
 
-const arima = Arima({
+const raleway = Raleway({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-heading",
   display: "swap",
 });
 
-const mulish = Mulish({
+const merriweather = Merriweather({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "700", "900"],
   variable: "--font-body",
   display: "swap",
 });
@@ -106,7 +106,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${arima.variable} ${mulish.variable}`}
+      className={`${raleway.variable} ${merriweather.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -115,7 +115,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col font-body selection:bg-[var(--accent)] selection:text-[#000000]">
+      <body className="min-h-screen flex flex-col font-body selection:bg-[var(--accent)] selection:text-white">
         <ThemeProvider>
           <SmoothScroll>
             {children}

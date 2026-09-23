@@ -111,18 +111,18 @@ export function Navbar() {
             {/* Espaçador Mobile para proteger a área da logo sem afetar os botões */}
             <div className="lg:hidden w-28 sm:w-32 flex-shrink pointer-events-none" />
 
-            {/* Logo Desktop: Desacoplada da altura da barra do menu */}
-            <div className="hidden lg:flex items-center justify-start relative flex-shrink-0 w-48 xl:w-56 h-12 pointer-events-none">
+            {/* Logo Desktop: Desacoplada da altura da barra do menu (reduzida em ~50%) */}
+            <div className="hidden lg:flex items-center justify-start relative flex-shrink-0 w-28 xl:w-32 h-10 pointer-events-none">
               <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-auto">
                 <Link href="#inicio" className="flex items-center group focus:outline-none">
-                  <div className="relative h-20 xl:h-22 w-44 xl:w-52 transition-transform duration-300 group-hover:scale-105">
+                  <div className="relative h-10 xl:h-11 w-26 xl:w-30 transition-transform duration-300 group-hover:scale-105">
                     <Image
                       src={currentLogo}
                       alt={OFFICE_INFO.name}
                       fill
                       priority
-                      className="object-contain object-left drop-shadow-md"
-                      sizes="(min-width: 1280px) 210px, 180px"
+                      className="object-contain object-left drop-shadow-sm"
+                      sizes="120px"
                     />
                   </div>
                 </Link>
@@ -364,7 +364,7 @@ export function Navbar() {
               </button>
             </div>
 
-            <div className="my-4 flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--brand-lavender)]/40 bg-[var(--bg-secondary)] text-xs font-heading text-[var(--text-main)]">
+            <div className="my-4 flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--accent)]/30 bg-[var(--bg-secondary)] text-xs font-heading text-[var(--text-main)]">
               <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent)]" />
               <span>Advocacia Especializada • 9+ Anos</span>
             </div>

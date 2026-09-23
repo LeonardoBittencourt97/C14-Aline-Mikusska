@@ -12,7 +12,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#1A1A1A] text-white border-t border-[#C897CE]/30 pt-16 pb-8">
+    <footer className="w-full bg-[#1A1A1A] text-white border-t border-[#8D359E]/30 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Topo do Footer */}
@@ -20,13 +20,13 @@ export function Footer() {
           
           {/* Coluna 1: Logo e Apresentação (5 colunas) */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="relative h-14 w-44">
+            <div className="relative h-12 w-36">
               <Image
                 src="/logo_sem_fundo_usarnomodoescuro.png"
                 alt={OFFICE_INFO.name}
                 fill
                 className="object-contain object-left"
-                sizes="180px"
+                sizes="150px"
               />
             </div>
             
@@ -34,15 +34,15 @@ export function Footer() {
               Atuação personalizada, estratégica e acolhedora nas áreas de Direito de Família, Cível, Criminal e Previdenciário. Atendimento ético e direto com a titular no Bairro Alto, Curitiba/PR.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#C897CE]/40 bg-white/5 text-xs font-heading text-[#C897CE]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#C897CE]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#8D359E]/40 bg-white/5 text-xs font-heading text-[#D68CE8]">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#D68CE8]" />
               <span>{OFFICE_INFO.lawyer} • Mais de 9 Anos de Prática</span>
             </div>
           </div>
 
           {/* Coluna 2: Navegação Rápida (3 colunas) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-heading text-xs uppercase tracking-widest text-[#C897CE] font-bold">
+            <h4 className="font-heading text-xs uppercase tracking-widest text-[#D68CE8] font-bold">
               Navegação
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm font-heading text-gray-300">
@@ -74,14 +74,14 @@ export function Footer() {
                 <Link href="#contato" className="hover:text-white transition-colors">Contato & Localização</Link>
               </li>
               <li>
-                <Link href="/links" className="text-[#C897CE] hover:underline font-semibold">Link-in-Bio (/links)</Link>
+                <Link href="/links" className="text-[#D68CE8] hover:underline font-semibold">Link-in-Bio (/links)</Link>
               </li>
             </ul>
           </div>
 
           {/* Coluna 3: Contatos e Redes (4 colunas) */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="font-heading text-xs uppercase tracking-widest text-[#C897CE] font-bold">
+            <h4 className="font-heading text-xs uppercase tracking-widest text-[#D68CE8] font-bold">
               Canais Oficiais
             </h4>
             <div className="space-y-1.5 text-xs sm:text-sm font-body text-gray-300">
@@ -97,7 +97,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram da Dra. Aline Pacheco Mikusska"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#C897CE] flex items-center justify-center text-white transition-colors cursor-pointer"
+                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#4E1455] flex items-center justify-center text-white transition-colors cursor-pointer"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
@@ -106,7 +106,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn da Dra. Aline Pacheco Mikusska"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#C897CE] flex items-center justify-center text-white transition-colors cursor-pointer"
+                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#4E1455] flex items-center justify-center text-white transition-colors cursor-pointer"
               >
                 <LinkedinIcon className="w-4 h-4" />
               </a>
@@ -138,7 +138,7 @@ export function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 hover:border-[#C897CE] text-gray-300 hover:text-white transition-colors flex-shrink-0 cursor-pointer text-xs font-heading"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 hover:border-[#D68CE8] text-gray-300 hover:text-white transition-colors flex-shrink-0 cursor-pointer text-xs font-heading"
           >
             <span>Voltar ao topo</span>
             <ArrowUp className="w-3.5 h-3.5" />

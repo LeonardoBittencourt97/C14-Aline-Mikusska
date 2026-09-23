@@ -116,12 +116,12 @@ export function FaqSection() {
           className="text-center pb-8 border-b border-[var(--border-subtle)]/30 mb-10 will-change-transform"
         >
           <div className="inline-flex items-center gap-2 mb-2">
-            <span className="bullet-indicator text-[#C897CE]" />
-            <span className="font-heading uppercase text-xs tracking-widest text-[#A56FA8] font-bold">
+            <span className="bullet-indicator text-[var(--accent)]" />
+            <span className="font-heading uppercase text-xs tracking-widest text-[var(--accent)] font-bold">
               06 / Esclarecimento de Dúvidas
             </span>
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-semibold mb-3">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-bold mb-3">
             Perguntas Frequentes
           </h2>
           <p className="font-body text-sm sm:text-base text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">
@@ -140,7 +140,7 @@ export function FaqSection() {
                 onClick={() => setActiveTab(cat.id)}
                 className={`px-4 py-2 rounded-full font-heading text-xs uppercase tracking-wider font-semibold transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "bg-[#C897CE] text-white shadow-sm scale-105"
+                    ? "bg-[#380D3D] text-white shadow-sm scale-105"
                     : "bg-[var(--bg-secondary)]/80 text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-secondary)]"
                 }`}
               >
@@ -166,14 +166,14 @@ export function FaqSection() {
                   className="w-full p-5 sm:p-6 flex items-center justify-between text-left focus:outline-none cursor-pointer group"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-heading font-bold text-base sm:text-lg text-[var(--text-main)] pr-4 group-hover:text-[#A56FA8] transition-colors leading-snug">
+                  <span className="font-heading font-bold text-base sm:text-lg text-[var(--text-main)] pr-4 group-hover:text-[var(--accent)] transition-colors leading-snug">
                     {item.question}
                   </span>
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                       isOpen
-                        ? "bg-[#C897CE] text-white rotate-180"
-                        : "bg-[var(--bg-secondary)] text-[#A56FA8] group-hover:bg-[#C897CE]/20"
+                        ? "bg-[#380D3D] text-white rotate-180"
+                        : "bg-[var(--bg-secondary)] text-[var(--accent)] group-hover:bg-[var(--accent)]/15"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -197,7 +197,7 @@ export function FaqSection() {
           ref={bottomCardRef}
           className="p-6 sm:p-8 rounded-3xl bg-[var(--bg-secondary)]/70 border border-[var(--border-subtle)]/40 text-center will-change-transform"
         >
-          <div className="w-12 h-12 rounded-2xl bg-[var(--bg-card)] border border-[#C897CE]/40 flex items-center justify-center mx-auto mb-3 text-[#A56FA8] shadow-2xs">
+          <div className="w-12 h-12 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex items-center justify-center mx-auto mb-3 text-[var(--accent)] shadow-2xs">
             <HelpCircle className="w-6 h-6" />
           </div>
           <h3 className="font-heading text-xl sm:text-2xl font-bold text-[var(--text-main)] mb-2">
@@ -210,7 +210,7 @@ export function FaqSection() {
             href={OFFICE_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-pill bg-[#C897CE] hover:bg-[#B177B8] text-white gap-2 shadow-xs text-xs sm:text-sm inline-flex items-center cursor-pointer"
+            className="btn-pill bg-[#380D3D] hover:bg-[#4E1455] text-white gap-2 shadow-md text-xs sm:text-sm inline-flex items-center cursor-pointer"
           >
             <WhatsAppIcon className="w-4 h-4 text-white" />
             <span>Falar no WhatsApp com a Dra. Aline</span>

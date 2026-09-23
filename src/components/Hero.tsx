@@ -89,7 +89,7 @@ export function Hero() {
         {/* Gradientes e Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/50 md:from-black/85 md:via-black/45 md:via-55% md:to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/60 md:from-black/40 md:via-transparent md:to-transparent" />
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#C897CE]/15 rounded-full blur-3xl md:hidden" />
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#380D3D]/25 rounded-full blur-3xl md:hidden" />
       </div>
 
       <div
@@ -99,15 +99,15 @@ export function Hero() {
         {/* Topo do Hero: Badge + Título Principal */}
         <div className="pt-2 sm:pt-4 lg:pt-4 max-w-3xl animate-fade-in-down">
           {/* Badge de Autoridade */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#C897CE]/50 bg-black/40 backdrop-blur-md text-xs sm:text-sm font-heading tracking-wide text-[#F7EFF8] mb-5 shadow-sm">
-            <ShieldCheck className="w-4 h-4 text-[#C897CE]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#8D359E]/40 bg-black/50 backdrop-blur-md text-xs sm:text-sm font-heading tracking-wide text-[#E8D0EE] mb-5 shadow-sm">
+            <ShieldCheck className="w-4 h-4 text-[#C273D4]" />
             <span>Dra. Aline Pacheco Mikusska • Mais de 9 Anos de Prática</span>
           </div>
 
           {/* Headline Principal de no máximo 2 linhas */}
-          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.15] tracking-tight text-white font-semibold drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.15] tracking-tight text-white font-bold drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
             Defesa jurídica{" "}
-            <span className="text-[#C897CE] relative">
+            <span className="text-[#D68CE8] relative">
               estratégica e acolhedora
             </span>{" "}
             para proteger o que realmente importa.
@@ -117,7 +117,7 @@ export function Hero() {
         {/* Base do Hero: Subtítulo Conciso + Botões de Conversão + Destaques de Rodapé */}
         <div className="pb-2 sm:pb-4 lg:pb-4 max-w-3xl mt-6 sm:mt-8 lg:mt-auto animate-fade-in-up">
           <p className="font-body text-xs sm:text-base lg:text-lg text-gray-200 max-w-2xl leading-relaxed mb-6 font-normal drop-shadow-sm">
-            Atuação humanizada e ágil em Direito de Família, Cível, Criminal e Previdenciário. Atendimento pessoal direto com a fundadora no Bairro Alto, Curitiba/PR.
+            Atuação individualizada e estratégica em Direito de Família, Cível, Criminal e Previdenciário. Atendimento pessoal direto com a titular no Bairro Alto, Curitiba/PR.
           </p>
 
           {/* CTAs com Hover e Microinterações */}
@@ -126,7 +126,7 @@ export function Hero() {
               href={OFFICE_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-pill bg-[#C897CE] hover:bg-[#B177B8] hover:scale-[1.02] text-white border border-[#C897CE]/50 gap-2.5 py-3 sm:py-3.5 px-6 sm:px-7 text-xs sm:text-sm font-semibold tracking-normal shadow-xl group transition-all text-center justify-center flex items-center cursor-pointer"
+              className="btn-pill bg-[#380D3D] hover:bg-[#4E1455] hover:scale-[1.02] text-white border border-[#8D359E]/40 gap-2.5 py-3 sm:py-3.5 px-6 sm:px-7 text-xs sm:text-sm font-semibold tracking-normal shadow-xl group transition-all text-center justify-center flex items-center cursor-pointer"
             >
               <MessageSquare className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
               <span>Falar com a Dra. Aline</span>
@@ -134,28 +134,28 @@ export function Hero() {
 
             <Link
               href="#educativo"
-              className="btn-pill bg-white text-black border-2 border-[#C897CE] hover:bg-[#F5EEF6] hover:border-[#B177B8] hover:scale-[1.02] shadow-md gap-2 py-3 sm:py-3.5 px-6 text-xs sm:text-sm font-semibold tracking-normal group transition-all text-center justify-center flex items-center cursor-pointer"
+              className="btn-pill bg-white/10 backdrop-blur-md text-white border border-white/30 hover:bg-white hover:text-[#380D3D] hover:border-white hover:scale-[1.02] shadow-md gap-2 py-3 sm:py-3.5 px-6 text-xs sm:text-sm font-semibold tracking-normal group transition-all text-center justify-center flex items-center cursor-pointer"
             >
-              <span className="text-black font-semibold">Conheça seus Direitos</span>
-              <ChevronRight className="w-4 h-4 text-[#A56FA8] group-hover:translate-x-1 transition-transform" />
+              <span className="font-semibold">Conheça seus Direitos</span>
+              <ChevronRight className="w-4 h-4 text-[#D68CE8] group-hover:translate-x-1 group-hover:text-[#380D3D] transition-transform" />
             </Link>
           </div>
 
           {/* Barra de Atributos de Prestígio */}
           <div className="hidden lg:flex items-center justify-between py-3 border-t border-white/20 mt-8 text-white/90 max-w-2xl">
             <div className="flex items-center gap-2.5">
-              <span className="bullet-indicator text-[#C897CE]" />
+              <span className="bullet-indicator text-[#C273D4]" />
               <span className="font-heading uppercase text-xs tracking-widest text-white/90 font-bold">
                 Bairro Alto • Curitiba / PR
               </span>
             </div>
             <div className="flex items-center gap-4 text-xs font-heading text-white/80">
               <span className="flex items-center gap-1.5">
-                <Award className="w-3.5 h-3.5 text-[#C897CE]" />
+                <Award className="w-3.5 h-3.5 text-[#C273D4]" />
                 Escritório Próprio desde 2020
               </span>
               <span className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#C897CE]" />
+                <MapPin className="w-3.5 h-3.5 text-[#C273D4]" />
                 Atendimento Presencial e Online
               </span>
             </div>

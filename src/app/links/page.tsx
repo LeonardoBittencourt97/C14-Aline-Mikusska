@@ -80,13 +80,13 @@ export default function LinksPage() {
       <div className="hidden lg:grid lg:grid-cols-2 h-full w-full overflow-hidden">
         
         {/* LADO ESQUERDO: Fundo Escuro com Logo e Identidade Visual */}
-        <div className="relative bg-[#1A1A1A] text-white flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden border-r border-[#C897CE]/30">
+        <div className="relative bg-[#1A1A1A] text-white flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden border-r border-[#8D359E]/30">
           <div className="absolute inset-0 pointer-events-none opacity-20">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="grid-links-desktop" width="50" height="50" patternUnits="userSpaceOnUse">
-                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#C897CE" strokeWidth="0.75" />
-                  <circle cx="0" cy="0" r="1.5" fill="#C897CE" />
+                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#8D359E" strokeWidth="0.75" />
+                  <circle cx="0" cy="0" r="1.5" fill="#8D359E" />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#grid-links-desktop)" />
@@ -94,24 +94,24 @@ export default function LinksPage() {
           </div>
 
           <div className="relative z-10 flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#C897CE]/40 bg-white/5 backdrop-blur-md text-xs font-heading tracking-wider text-[#C897CE]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#C897CE]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#8D359E]/40 bg-white/5 backdrop-blur-md text-xs font-heading tracking-wider text-[#D68CE8]">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#D68CE8]" />
               <span>Mais de 9 Anos de Prática Jurídica</span>
             </div>
-            <span className="text-[0.6875rem] font-heading uppercase tracking-widest text-[#C897CE]">
+            <span className="text-[0.6875rem] font-heading uppercase tracking-widest text-[#D68CE8]">
               Curitiba - PR
             </span>
           </div>
 
           <div className="relative z-10 my-auto py-4 flex flex-col items-center text-center w-full">
-            <div className="relative w-full max-w-[420px] h-48 xl:h-56 mb-4">
+            <div className="relative w-full max-w-[340px] h-36 xl:h-40 mb-4">
               <Image
                 src="/logo_sem_fundo_usarnomodoescuro.png"
                 alt={OFFICE_INFO.name}
                 fill
                 priority
                 className="object-contain drop-shadow-lg"
-                sizes="(min-width: 1024px) 420px, 300px"
+                sizes="(min-width: 1024px) 340px, 260px"
               />
             </div>
 
@@ -133,7 +133,7 @@ export default function LinksPage() {
 
           <div className="relative z-10 flex items-center justify-between text-xs text-gray-400 font-body pt-4 border-t border-white/10">
             <p>{OFFICE_INFO.addressShort}</p>
-            <p className="text-[0.6875rem] text-[#C897CE]">Provimento 205/2021 CFOAB</p>
+            <p className="text-[0.6875rem] text-[#D68CE8]">Provimento 205/2021 CFOAB</p>
           </div>
         </div>
 
@@ -142,7 +142,7 @@ export default function LinksPage() {
           <div>
             <div className="flex items-center justify-between pb-4 border-b border-gray-200 mb-6">
               <div>
-                <span className="text-xs uppercase tracking-widest text-[#A56FA8] font-heading font-semibold block">
+                <span className="text-xs uppercase tracking-widest text-[#380D3D] font-heading font-bold block">
                   Acesso Imediato
                 </span>
                 <h1 className="text-2xl font-heading font-bold text-[#000000]">
@@ -151,7 +151,7 @@ export default function LinksPage() {
               </div>
               <Link
                 href="/"
-                className="text-xs font-heading text-[#A56FA8] hover:text-[#000000] transition-colors flex items-center gap-1 font-semibold"
+                className="text-xs font-heading text-[#380D3D] hover:text-[#4E1455] transition-colors flex items-center gap-1 font-bold"
               >
                 <span>Acessar Site</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -169,14 +169,14 @@ export default function LinksPage() {
                     rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className={`group flex items-center justify-between p-4 rounded-2xl border transition-all duration-300 ${
                       item.highlight
-                        ? "bg-[#C897CE] text-white border-[#C897CE] shadow-md hover:bg-[#B177B8] hover:scale-[1.01]"
-                        : "bg-[#FBFBF9] hover:bg-[#F5EEF6] border-gray-200 text-[#000000] hover:border-[#C897CE]/50"
+                        ? "bg-[#380D3D] text-white border-[#380D3D] shadow-md hover:bg-[#4E1455] hover:scale-[1.01]"
+                        : "bg-[#FBFBF9] hover:bg-[#F4EEF5] border-gray-200 text-[#000000] hover:border-[#380D3D]/30"
                     }`}
                   >
                     <div className="flex items-center gap-3.5">
                       <div
                         className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110 ${
-                          item.highlight ? "bg-white/20 text-white" : "bg-white border border-gray-200 text-[#A56FA8]"
+                          item.highlight ? "bg-white/20 text-white" : "bg-white border border-gray-200 text-[#380D3D]"
                         }`}
                       >
                         <Icon className="w-5 h-5" />
@@ -196,7 +196,7 @@ export default function LinksPage() {
                     </div>
                     <ArrowUpRight
                       className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
-                        item.highlight ? "text-white" : "text-gray-400 group-hover:text-[#A56FA8]"
+                        item.highlight ? "text-white" : "text-gray-400 group-hover:text-[#380D3D]"
                       }`}
                     />
                   </a>
@@ -228,8 +228,8 @@ export default function LinksPage() {
                 sizes="200px"
               />
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5EEF6] border border-[#C897CE]/40 text-xs font-heading text-[#6D3674] mb-2 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#A56FA8]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F4EEF5] border border-[#380D3D]/20 text-xs font-heading text-[#380D3D] mb-2 font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#380D3D]" />
               <span>Mais de 9 Anos de Prática Jurídica</span>
             </div>
             <p className="text-xs text-gray-600 font-body max-w-xs mx-auto leading-relaxed">
@@ -249,14 +249,14 @@ export default function LinksPage() {
                   rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className={`group flex items-center justify-between p-3.5 rounded-2xl border transition-all duration-300 ${
                     item.highlight
-                      ? "bg-[#C897CE] text-white border-[#C897CE] shadow-md active:scale-95"
-                      : "bg-[#FBFBF9] hover:bg-[#F5EEF6] border-gray-200 text-[#000000]"
+                      ? "bg-[#380D3D] text-white border-[#380D3D] shadow-md active:scale-95"
+                      : "bg-[#FBFBF9] hover:bg-[#F4EEF5] border-gray-200 text-[#000000]"
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                        item.highlight ? "bg-white/20 text-white" : "bg-white border border-gray-200 text-[#A56FA8]"
+                        item.highlight ? "bg-white/20 text-white" : "bg-white border border-gray-200 text-[#380D3D]"
                       }`}
                     >
                       <Icon className="w-4 h-4" />
@@ -279,8 +279,8 @@ export default function LinksPage() {
           </div>
 
           {/* Especialidades no Mobile */}
-          <div className="mt-8 p-4 rounded-2xl bg-[#F5EEF6] border border-[#C897CE]/30 text-center">
-            <span className="text-[0.6875rem] font-heading uppercase tracking-widest text-[#6D3674] font-bold block mb-2">
+          <div className="mt-8 p-4 rounded-2xl bg-[#F4EEF5] border border-[#380D3D]/20 text-center">
+            <span className="text-[0.6875rem] font-heading uppercase tracking-widest text-[#380D3D] font-bold block mb-2">
               Áreas de Atuação
             </span>
             <div className="flex flex-wrap justify-center gap-1.5">

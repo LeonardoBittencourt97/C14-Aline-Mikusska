@@ -104,12 +104,12 @@ export function ContactSection() {
         >
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <span className="bullet-indicator text-[#C897CE]" />
-              <span className="font-heading uppercase text-xs tracking-widest text-[#A56FA8] font-bold">
+              <span className="bullet-indicator text-[var(--accent)]" />
+              <span className="font-heading uppercase text-xs tracking-widest text-[var(--accent)] font-bold">
                 07 / Canais Oficiais de Atendimento
               </span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-semibold">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-bold">
               Contato & Localização
             </h2>
           </div>
@@ -124,12 +124,12 @@ export function ContactSection() {
           <div ref={cardsColRef} className="lg:col-span-5 flex flex-col justify-between space-y-6 will-change-transform">
             <div className="space-y-4">
               {/* Card WhatsApp */}
-              <div className="contact-info-card p-5 rounded-2xl bg-[var(--bg-secondary)]/70 border border-[var(--border-subtle)]/40 flex items-start gap-4 will-change-transform shadow-2xs hover:border-[#C897CE] transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-[#C897CE] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+              <div className="contact-info-card p-5 rounded-2xl bg-[var(--bg-secondary)]/70 border border-[var(--border-subtle)]/40 flex items-start gap-4 will-change-transform shadow-2xs hover:border-[var(--accent)] transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#380D3D] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="font-heading text-xs uppercase tracking-wider text-[#A56FA8] font-bold block mb-0.5">
+                  <span className="font-heading text-xs uppercase tracking-wider text-[var(--accent)] font-bold block mb-0.5">
                     WhatsApp & Ligação Direta
                   </span>
                   <p className="font-heading text-lg font-bold text-[var(--text-main)]">
@@ -142,12 +142,12 @@ export function ContactSection() {
               </div>
 
               {/* Card Endereço com Botão de Rota Traçada */}
-              <div className="contact-info-card p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 flex items-start gap-4 will-change-transform shadow-2xs hover:border-[#C897CE] transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] text-[#A56FA8] flex items-center justify-center flex-shrink-0 shadow-xs">
+              <div className="contact-info-card p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 flex items-start gap-4 will-change-transform shadow-2xs hover:border-[var(--accent)] transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] text-[var(--accent)] flex items-center justify-center flex-shrink-0 shadow-xs">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <span className="font-heading text-xs uppercase tracking-wider text-[#A56FA8] font-bold block mb-0.5">
+                  <span className="font-heading text-xs uppercase tracking-wider text-[var(--accent)] font-bold block mb-0.5">
                     Endereço da Sede
                   </span>
                   <p className="font-body text-sm font-semibold text-[var(--text-main)]">
@@ -161,9 +161,9 @@ export function ContactSection() {
                       href={directionsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-[#A56FA8] hover:text-[#000000] transition-colors group/route cursor-pointer"
+                      className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-[var(--accent)] hover:text-[var(--text-main)] transition-colors group/route cursor-pointer"
                     >
-                      <Navigation className="w-3.5 h-3.5 transition-transform group-hover/route:rotate-12 text-[#C897CE]" />
+                      <Navigation className="w-3.5 h-3.5 transition-transform group-hover/route:rotate-12 text-[var(--accent)]" />
                       <span>Traçar rota no GPS</span>
                       <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/route:translate-x-0.5 group-hover/route:-translate-y-0.5" />
                     </a>
@@ -172,22 +172,22 @@ export function ContactSection() {
               </div>
 
               {/* Card Redes Sociais */}
-              <div className="contact-info-card p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 flex items-start gap-4 will-change-transform shadow-2xs hover:border-[#C897CE] transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] text-[#A56FA8] flex items-center justify-center flex-shrink-0 shadow-xs">
+              <div className="contact-info-card p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 flex items-start gap-4 will-change-transform shadow-2xs hover:border-[var(--accent)] transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] text-[var(--accent)] flex items-center justify-center flex-shrink-0 shadow-xs">
                   <InstagramIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="font-heading text-xs uppercase tracking-wider text-[#A56FA8] font-bold block mb-0.5">
+                  <span className="font-heading text-xs uppercase tracking-wider text-[var(--accent)] font-bold block mb-0.5">
                     Instagram Oficial
                   </span>
                   <a
                     href={OFFICE_INFO.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-body text-sm font-semibold text-[var(--text-main)] hover:text-[#A56FA8] transition-colors flex items-center gap-1"
+                    className="font-body text-sm font-semibold text-[var(--text-main)] hover:text-[var(--accent)] transition-colors flex items-center gap-1"
                   >
                     <span>{OFFICE_INFO.instagramHandle}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#C897CE]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[var(--accent)]" />
                   </a>
                   <p className="text-xs font-body text-[var(--text-muted)] mt-1">
                     Conteúdo jurídico explicativo e orientações diárias sobre seus direitos.
@@ -196,12 +196,12 @@ export function ContactSection() {
               </div>
 
               {/* Card Horário */}
-              <div className="contact-info-card p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 flex items-start gap-4 will-change-transform shadow-2xs hover:border-[#C897CE] transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] text-[#A56FA8] flex items-center justify-center flex-shrink-0 shadow-xs">
+              <div className="contact-info-card p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 flex items-start gap-4 will-change-transform shadow-2xs hover:border-[var(--accent)] transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] text-[var(--accent)] flex items-center justify-center flex-shrink-0 shadow-xs">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="font-heading text-xs uppercase tracking-wider text-[#A56FA8] font-bold block mb-0.5">
+                  <span className="font-heading text-xs uppercase tracking-wider text-[var(--accent)] font-bold block mb-0.5">
                     Horário de Atendimento
                   </span>
                   <p className="font-body text-xs sm:text-sm text-[var(--text-main)]">
@@ -222,7 +222,7 @@ export function ContactSection() {
                 href={OFFICE_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full btn-pill bg-[#C897CE] hover:bg-[#B177B8] text-white py-3.5 gap-2 shadow-md text-sm sm:text-base cursor-pointer hover-lift transition-all flex items-center justify-center"
+                className="w-full btn-pill bg-[#380D3D] hover:bg-[#4E1455] text-white py-3.5 gap-2 shadow-md text-sm sm:text-base cursor-pointer hover-lift transition-all flex items-center justify-center"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
                 <span>Iniciar Conversa no WhatsApp</span>
@@ -245,7 +245,7 @@ export function ContactSection() {
                 className="w-full h-full grayscale-[20%] contrast-[1.05]"
               />
               {/* Badge de Identificação no Topo do Mapa */}
-              <div className="absolute top-4 left-4 p-3 rounded-xl bg-white/95 dark:bg-[#2B182F]/95 backdrop-blur-md border border-[var(--border-subtle)]/30 text-xs shadow-md">
+              <div className="absolute top-4 left-4 p-3 rounded-xl bg-white/95 dark:bg-[#1D0F21]/95 backdrop-blur-md border border-[var(--border-subtle)]/30 text-xs shadow-md">
                 <span className="font-heading font-bold text-[var(--text-main)] block">
                   Aline Pacheco Mikusska Advocacia
                 </span>
@@ -255,7 +255,7 @@ export function ContactSection() {
               </div>
 
               {/* Botão de Rota Traçada Flutuante na Base do Mapa */}
-              <div className="absolute bottom-4 inset-x-4 sm:left-auto sm:right-4 p-2 sm:p-2.5 rounded-2xl bg-white/95 dark:bg-[#2B182F]/95 backdrop-blur-md border border-[var(--border-subtle)]/40 shadow-xl flex items-center justify-between sm:justify-start gap-3">
+              <div className="absolute bottom-4 inset-x-4 sm:left-auto sm:right-4 p-2 sm:p-2.5 rounded-2xl bg-white/95 dark:bg-[#1D0F21]/95 backdrop-blur-md border border-[var(--border-subtle)]/40 shadow-xl flex items-center justify-between sm:justify-start gap-3">
                 <div className="hidden sm:block pl-2 pr-1">
                   <span className="font-heading text-xs font-bold text-[var(--text-main)] block">
                     Como Chegar
@@ -268,7 +268,7 @@ export function ContactSection() {
                   href={directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-pill bg-[#C897CE] hover:bg-[#B177B8] hover:scale-105 text-white py-2.5 px-4 text-xs font-semibold gap-2 shadow-md inline-flex items-center justify-center w-full sm:w-auto transition-all cursor-pointer"
+                  className="btn-pill bg-[#380D3D] hover:bg-[#4E1455] hover:scale-105 text-white py-2.5 px-4 text-xs font-semibold gap-2 shadow-md inline-flex items-center justify-center w-full sm:w-auto transition-all cursor-pointer"
                 >
                   <Navigation className="w-3.5 h-3.5 fill-white text-white" />
                   <span>Traçar Rota no Google Maps</span>

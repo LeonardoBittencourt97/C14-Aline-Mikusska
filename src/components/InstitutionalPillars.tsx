@@ -92,13 +92,13 @@ export function InstitutionalPillars() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/25 mb-8 text-[var(--text-muted)]">
-          {/* Linha Lilás Lavanda desenhada pelo scroll */}
+          {/* Linha Roxo Profundo desenhada pelo scroll */}
           <div
             ref={lineRef}
-            className="absolute -bottom-[1px] left-0 right-0 h-[2px] bg-gradient-to-r from-[#A56FA8] via-[#C897CE] to-transparent will-change-transform"
+            className="absolute -bottom-[1px] left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--brand-purple-dark)] via-[var(--accent)] to-transparent will-change-transform"
           />
           <div className="flex items-center gap-2.5">
-            <Scale className="w-4 h-4 text-[#A56FA8]" />
+            <Scale className="w-4 h-4 text-[var(--accent)]" />
             <span className="font-heading uppercase text-xs tracking-widest font-bold text-[var(--text-main)]">
               Pilares Institucionais de Atuação
             </span>
@@ -115,8 +115,8 @@ export function InstitutionalPillars() {
         >
           {/* 1. Solidez & Prática Forense */}
           <div className="pillar-item flex flex-col items-start px-0 sm:px-6 pt-6 sm:pt-0 first:pt-0 will-change-transform">
-            <div className="flex items-center gap-2 mb-2 text-[#A56FA8]">
-              <Award className="w-5 h-5 text-[#A56FA8]" />
+            <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
+              <Award className="w-5 h-5 text-[var(--accent)]" />
               <span
                 className="metric-counter font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]"
                 data-target="9"
@@ -136,8 +136,8 @@ export function InstitutionalPillars() {
 
           {/* 2. Acolhimento Antes de Tudo */}
           <div className="pillar-item flex flex-col items-start px-0 sm:px-6 pt-6 sm:pt-0 will-change-transform">
-            <div className="flex items-center gap-2 mb-2 text-[#A56FA8]">
-              <UserCheck className="w-5 h-5 text-[#A56FA8]" />
+            <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
+              <UserCheck className="w-5 h-5 text-[var(--accent)]" />
               <span
                 className="metric-counter font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]"
                 data-target="100"
@@ -157,8 +157,8 @@ export function InstitutionalPillars() {
 
           {/* 3. Resoluções Pacíficas & Ágeis */}
           <div className="pillar-item flex flex-col items-start px-0 sm:px-6 pt-6 sm:pt-0 will-change-transform">
-            <div className="flex items-center gap-2 mb-2 text-[#A56FA8]">
-              <Scale className="w-5 h-5 text-[#A56FA8]" />
+            <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
+              <Scale className="w-5 h-5 text-[var(--accent)]" />
               <span className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]">
                 Pacificação
               </span>
@@ -173,8 +173,8 @@ export function InstitutionalPillars() {
 
           {/* 4. Confiança Comprovada */}
           <div className="pillar-item flex flex-col items-start px-0 sm:px-6 pt-6 sm:pt-0 will-change-transform">
-            <div className="flex items-center gap-2 mb-2 text-[#A56FA8]">
-              <ShieldCheck className="w-5 h-5 text-[#A56FA8]" />
+            <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
+              <ShieldCheck className="w-5 h-5 text-[var(--accent)]" />
               <span
                 className="metric-counter font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]"
                 data-target="5.0"

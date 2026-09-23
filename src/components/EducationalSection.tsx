@@ -112,12 +112,12 @@ export function EducationalSection() {
         >
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <span className="bullet-indicator text-[#C897CE]" />
-              <span className="font-heading uppercase text-xs tracking-widest text-[#A56FA8] font-bold">
+              <span className="bullet-indicator text-[var(--accent)]" />
+              <span className="font-heading uppercase text-xs tracking-widest text-[var(--accent)] font-bold">
                 05 / Conteúdo Jurídico Educativo
               </span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-semibold">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-bold">
               Conheça Seus Direitos
             </h2>
           </div>
@@ -146,16 +146,16 @@ export function EducationalSection() {
                   onClick={() => setSelectedId(topic.id)}
                   className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${
                     isSelected
-                      ? "bg-[var(--bg-card)] border-[#C897CE] shadow-md -translate-y-0.5"
-                      : "bg-[var(--bg-card)]/60 border-[var(--border-subtle)]/30 hover:bg-[var(--bg-card)] hover:border-[#C897CE]/50"
+                      ? "bg-[var(--bg-card)] border-[var(--accent)] shadow-md -translate-y-0.5"
+                      : "bg-[var(--bg-card)]/60 border-[var(--border-subtle)]/30 hover:bg-[var(--bg-card)] hover:border-[var(--accent)]/50"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-3 mb-2">
-                    <span className="text-[0.6875rem] font-heading uppercase tracking-wider font-semibold text-[#A56FA8]">
+                    <span className="text-[0.6875rem] font-heading uppercase tracking-wider font-semibold text-[var(--accent)]">
                       {topic.category}
                     </span>
                     <span className="text-[0.6875rem] font-body text-[var(--text-muted)] flex items-center gap-1">
-                      <Clock className="w-3 h-3 text-[#C897CE]" />
+                      <Clock className="w-3 h-3 text-[var(--accent)]" />
                       <span>{topic.readTime}</span>
                     </span>
                   </div>
@@ -168,11 +168,11 @@ export function EducationalSection() {
                     {topic.summary}
                   </p>
 
-                  <div className="pt-3 mt-3 border-t border-[var(--border-subtle)]/15 flex items-center justify-between text-xs font-heading font-semibold text-[#A56FA8]">
+                  <div className="pt-3 mt-3 border-t border-[var(--border-subtle)]/15 flex items-center justify-between text-xs font-heading font-semibold text-[var(--accent)]">
                     <span>Ler orientação completa</span>
                     <ChevronRight
                       className={`w-4 h-4 transition-transform ${
-                        isSelected ? "translate-x-1 text-[#C897CE]" : "opacity-60"
+                        isSelected ? "translate-x-1 text-[var(--accent)]" : "opacity-60"
                       }`}
                     />
                   </div>
@@ -185,12 +185,12 @@ export function EducationalSection() {
           <div ref={rightColRef} className="md:col-span-7 will-change-transform">
             <div className="p-8 sm:p-10 rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/40 shadow-lg relative">
               <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/20 mb-6">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5EEF6] border border-[#C897CE]/40 text-xs font-heading font-semibold text-[#6D3674] dark:text-[#C897CE]">
-                  <BookOpen className="w-3.5 h-3.5 text-[#C897CE]" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-xs font-heading font-semibold text-[var(--accent)]">
+                  <BookOpen className="w-3.5 h-3.5 text-[var(--accent)]" />
                   <span>{activeTopic.category}</span>
                 </span>
                 <span className="text-xs text-[var(--text-muted)] font-body flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-[#C897CE]" />
+                  <Clock className="w-3.5 h-3.5 text-[var(--accent)]" />
                   <span>{activeTopic.readTime}</span>
                 </span>
               </div>
@@ -209,7 +209,7 @@ export function EducationalSection() {
 
               {/* Disclaimer OAB */}
               <div className="p-4 rounded-xl bg-[var(--bg-secondary)]/80 border border-[var(--border-subtle)]/30 mb-8 flex items-start gap-3">
-                <ShieldAlert className="w-4 h-4 text-[#A56FA8] flex-shrink-0 mt-0.5" />
+                <ShieldAlert className="w-4 h-4 text-[var(--accent)] flex-shrink-0 mt-0.5" />
                 <p className="text-[0.6875rem] sm:text-xs text-[var(--text-muted)] font-body leading-relaxed">
                   {activeTopic.oabDisclaimer}
                 </p>
@@ -230,7 +230,7 @@ export function EducationalSection() {
                   href={getWhatsAppMessageUrl(activeTopic.title)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-pill bg-[#C897CE] hover:bg-[#B177B8] text-white gap-2 py-3 px-6 text-xs sm:text-sm font-semibold shadow-xs hover-lift transition-all cursor-pointer flex items-center flex-shrink-0"
+                  className="btn-pill bg-[#380D3D] hover:bg-[#4E1455] text-white gap-2 py-3 px-6 text-xs sm:text-sm font-semibold shadow-md hover-lift transition-all cursor-pointer flex items-center flex-shrink-0"
                 >
                   <WhatsAppIcon className="w-4 h-4 text-white" />
                   <span>Tirar Dúvida no WhatsApp</span>
@@ -251,7 +251,7 @@ export function EducationalSection() {
               <div
                 key={topic.id}
                 className={`rounded-2xl border transition-all duration-300 bg-[var(--bg-card)] overflow-hidden ${
-                  isExpanded ? "border-[#C897CE] shadow-md" : "border-[var(--border-subtle)]/35 shadow-2xs"
+                  isExpanded ? "border-[var(--accent)] shadow-md" : "border-[var(--border-subtle)]/35 shadow-2xs"
                 }`}
               >
                 <button
@@ -261,7 +261,7 @@ export function EducationalSection() {
                   aria-expanded={isExpanded}
                 >
                   <div className="pr-2">
-                    <span className="text-[0.6875rem] font-heading uppercase tracking-wider font-semibold text-[#A56FA8] block mb-1">
+                    <span className="text-[0.6875rem] font-heading uppercase tracking-wider font-semibold text-[var(--accent)] block mb-1">
                       {topic.category}
                     </span>
                     <h3 className="font-heading text-base font-bold text-[var(--text-main)] leading-snug">
@@ -269,10 +269,10 @@ export function EducationalSection() {
                     </h3>
                   </div>
 
-                  <div className="w-8 h-8 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center flex-shrink-0 text-[#A56FA8]">
+                  <div className="w-8 h-8 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center flex-shrink-0 text-[var(--accent)]">
                     <ChevronDown
                       className={`w-4 h-4 transition-transform duration-300 ${
-                        isExpanded ? "rotate-180 text-[#C897CE]" : "rotate-0"
+                        isExpanded ? "rotate-180 text-[var(--accent)]" : "rotate-0"
                       }`}
                     />
                   </div>
@@ -287,7 +287,7 @@ export function EducationalSection() {
                     </div>
 
                     <div className="p-3 rounded-xl bg-[var(--bg-secondary)]/80 border border-[var(--border-subtle)]/30 mb-4 flex items-start gap-2 text-[0.6875rem] text-[var(--text-muted)] font-body">
-                      <ShieldAlert className="w-3.5 h-3.5 text-[#A56FA8] flex-shrink-0 mt-0.5" />
+                      <ShieldAlert className="w-3.5 h-3.5 text-[var(--accent)] flex-shrink-0 mt-0.5" />
                       <span>{topic.oabDisclaimer}</span>
                     </div>
 
@@ -295,7 +295,7 @@ export function EducationalSection() {
                       href={getWhatsAppMessageUrl(topic.title)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-pill bg-[#C897CE] text-white w-full py-2.5 text-xs font-semibold shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                      className="btn-pill bg-[#380D3D] hover:bg-[#4E1455] text-white w-full py-2.5 text-xs font-semibold shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
                     >
                       <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
                       <span>Tirar Dúvida sobre este Tema</span>

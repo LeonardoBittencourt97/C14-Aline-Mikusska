@@ -4,41 +4,45 @@
 :root {
   --bg-primary: #FBFBF9;
   --bg-card: #FFFFFF;
-  --bg-secondary: #F5EEF6;
-  --text-main: #000000;
-  --text-muted: #594D5B;
+  --bg-secondary: #F4EEF5;
+  --text-main: #141414;
+  --text-muted: #4A424E;
   --brand-black: #000000;
-  --brand-lavender: #C897CE;
-  --brand-lavender-dark: #A56FA8;
-  --brand-lavender-light: #F7EFF8;
-  --brand-purple-dark: #3F2345;
+  --brand-purple: #380D3D;
+  --brand-purple-dark: #240628;
+  --brand-purple-light: #4E1455;
+  --brand-lavender: #380D3D;
+  --brand-lavender-dark: #240628;
+  --brand-lavender-light: #F4EEF5;
   --brand-graphite: #1A1A1A;
   --brand-offwhite: #FBFBF9;
-  --accent: #C897CE;
-  --accent-hover: #B177B8;
-  --accent-light: #FBF5FC;
-  --accent-dark: #6D3674;
-  --border-subtle: rgba(200, 151, 206, 0.35);
+  --accent: #380D3D;
+  --accent-hover: #4E1455;
+  --accent-light: #F4EEF5;
+  --accent-dark: #240628;
+  --border-subtle: rgba(56, 13, 61, 0.16);
 }
 
 html.dark {
-  --bg-primary: #1A1A1A;
-  --bg-card: #2B182F;
-  --bg-secondary: #221226;
+  --bg-primary: #120814;
+  --bg-card: #1D0F21;
+  --bg-secondary: #170A1A;
   --text-main: #FBFBF9;
-  --text-muted: #D3C6D6;
+  --text-muted: #D1C5D4;
   --brand-black: #000000;
-  --brand-lavender: #C897CE;
-  --brand-lavender-dark: #A56FA8;
-  --brand-lavender-light: #3F2345;
-  --brand-purple-dark: #3F2345;
+  --brand-purple: #9E4CAE;
+  --brand-purple-dark: #240628;
+  --brand-purple-light: #B464C5;
+  --brand-lavender: #9E4CAE;
+  --brand-lavender-dark: #240628;
+  --brand-lavender-light: #2A1230;
   --brand-graphite: #1A1A1A;
   --brand-offwhite: #FBFBF9;
-  --accent: #C897CE;
-  --accent-hover: #D8AFD9;
-  --accent-light: #351C3A;
-  --accent-dark: #A56FA8;
-  --border-subtle: rgba(200, 151, 206, 0.3);
+  --accent: #9E4CAE;
+  --accent-hover: #B464C5;
+  --accent-light: #2A1230;
+  --accent-dark: #7F2F8E;
+  --border-subtle: rgba(158, 76, 174, 0.22);
 }
 
 html {
@@ -51,20 +55,20 @@ body {
   overflow-x: clip;
   background-color: var(--bg-primary);
   color: var(--text-main);
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-body), Georgia, serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Tipografia de Títulos e Cabeçalhos: Arima (Arima Madurai) */
+/* Tipografia de Títulos e Cabeçalhos: Raleway */
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: var(--font-heading), cursive, serif;
-  letter-spacing: 0.01em;
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: -0.01em;
 }
 
-/* Tipografia de Leitura: Mulish */
+/* Tipografia de Leitura Editorial: Merriweather */
 .font-body {
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-body), Georgia, serif;
 }
 
 /* Bordas sutis editoriais */

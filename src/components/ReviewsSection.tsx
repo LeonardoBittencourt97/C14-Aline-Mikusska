@@ -70,12 +70,12 @@ export function ReviewsSection() {
         >
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <span className="bullet-indicator text-[#C897CE]" />
-              <span className="font-heading uppercase text-xs tracking-widest text-[#A56FA8] font-bold">
+              <span className="bullet-indicator text-[var(--accent)]" />
+              <span className="font-heading uppercase text-xs tracking-widest text-[var(--accent)] font-bold">
                 04 / Reconhecimento Público
               </span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-semibold">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-bold">
               Avaliações no Google Reviews
             </h2>
           </div>
@@ -93,8 +93,8 @@ export function ReviewsSection() {
               </span>
             </div>
             <div className="h-8 w-[1px] bg-[var(--border-subtle)]/30" />
-            <div className="flex items-center gap-1.5 font-heading text-sm font-bold text-[#A56FA8]">
-              <ShieldCheck className="w-4 h-4 text-[#C897CE]" />
+            <div className="flex items-center gap-1.5 font-heading text-sm font-bold text-[var(--accent)]">
+              <ShieldCheck className="w-4 h-4 text-[var(--accent)]" />
               <span>Google Verificado</span>
             </div>
           </div>
@@ -107,7 +107,7 @@ export function ReviewsSection() {
           {duplicatedReviews.map((rev, idx) => (
             <div
               key={`${rev.author}-${idx}`}
-              className="w-[300px] sm:w-[360px] p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 shadow-xs flex flex-col justify-between flex-shrink-0 hover:border-[#C897CE] transition-colors"
+              className="w-[300px] sm:w-[360px] p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 shadow-xs flex flex-col justify-between flex-shrink-0 hover:border-[var(--accent)] transition-colors"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -136,7 +136,7 @@ export function ReviewsSection() {
                   )}
                 </div>
                 <span className="text-[0.6875rem] text-[var(--text-muted)] flex items-center gap-1">
-                  <MessageSquareQuote className="w-3.5 h-3.5 text-[#C897CE]" />
+                  <MessageSquareQuote className="w-3.5 h-3.5 text-[var(--accent)]" />
                   <span>{rev.source}</span>
                 </span>
               </div>

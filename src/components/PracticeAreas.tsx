@@ -14,7 +14,11 @@ if (typeof window !== "undefined") {
 export function PracticeAreas() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
+
+  // Refs para modelo Desktop (Efeito de Sobreposição / Stacking Pinned com GSAP)
+  const desktopContainerRef = useRef<HTMLDivElement>(null);
+  const row1Ref = useRef<HTMLDivElement>(null);
+  const row2Ref = useRef<HTMLDivElement>(null);
 
   // Estado para acordeão no modelo Mobile
   const [expandedMobileId, setExpandedMobileId] = useState<string | null>(null);
@@ -28,7 +32,7 @@ export function PracticeAreas() {
 
   useGSAP(
     () => {
-      // 1. Animação do cabeçalho
+      // 1. Animação bidirecional do cabeçalho
       if (headerRef.current) {
         gsap.fromTo(
           headerRef.current,
@@ -47,26 +51,49 @@ export function PracticeAreas() {
         );
       }
 
-      // 2. Animação em cascata dos cards
-      const cards = gridRef.current?.querySelectorAll(".practice-card");
-      if (cards && cards.length > 0) {
-        gsap.fromTo(
-          cards,
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.75,
-            stagger: 0.12,
-            ease: "power2.out",
+      // 2. DESKTOP: Sobreposição com Pinning — Efeito de Stacking idêntico ao C12
+      const mm = gsap.matchMedia();
+
+      mm.add("(min-width: 768px)", () => {
+        if (desktopContainerRef.current && row1Ref.current && row2Ref.current) {
+          const tl = gsap.timeline({
             scrollTrigger: {
-              trigger: gridRef.current,
-              start: "top 85%",
-              toggleActions: "play reverse play reverse",
+              trigger: desktopContainerRef.current,
+              start: "top 20%",
+              end: "+=520",
+              pin: true,
+              scrub: 1,
+              anticipatePin: 1,
             },
-          }
-        );
-      }
+          });
+
+          // A linha 1 encolhe sutilmente e ganha opacidade suave
+          tl.to(
+            row1Ref.current,
+            {
+              scale: 0.94,
+              opacity: 0.25,
+              ease: "none",
+            },
+            0
+          );
+
+          // A linha 2 entra suavemente por cima, cobrindo a linha 1 perfeitamente
+          tl.fromTo(
+            row2Ref.current,
+            {
+              y: 440,
+              opacity: 0,
+            },
+            {
+              y: 0,
+              opacity: 1,
+              ease: "none",
+            },
+            0
+          );
+        }
+      });
     },
     { scope: sectionRef }
   );
@@ -86,6 +113,9 @@ export function PracticeAreas() {
     }
   };
 
+  const topRowAreas = PRACTICE_AREAS.slice(0, 2);
+  const bottomRowAreas = PRACTICE_AREAS.slice(2, 4);
+
   return (
     <section
       id="atuacao"
@@ -100,151 +130,216 @@ export function PracticeAreas() {
         >
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <span className="bullet-indicator text-[#C897CE]" />
-              <span className="font-heading uppercase text-xs tracking-widest text-[#A56FA8] font-bold">
+              <span className="bullet-indicator text-[var(--accent)]" />
+              <span className="font-heading uppercase text-xs tracking-widest text-[var(--accent)] font-bold">
                 02 / Especialidades Jurídicas
               </span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-semibold">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-bold">
               Áreas de Atuação
             </h2>
           </div>
           <p className="font-body text-sm sm:text-base text-[var(--text-muted)] max-w-xl leading-relaxed">
-            Atuação técnica individualizada, estratégica e acolhedora para proteger seu patrimônio, sua família e sua liberdade.
+            Atuação técnica individualizada, estratégica e acolhedora para proteger seu patrimônio, sua família, sua liberdade e sua previdência.
           </p>
         </div>
 
         {/* ========================================================================= */}
-        {/* MODELO DESKTOP (MD+): GRADE 2x2 ELEGANTE COM CARDS COMPLETOS             */}
+        {/* MODELO DESKTOP (MD+): SOBREPOSIÇÃO PINNADA (STACKING GSAP)               */}
         {/* ========================================================================= */}
-        <div ref={gridRef} className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8">
-          {PRACTICE_AREAS.map((area, idx) => (
-            <div
-              key={area.id}
-              className="practice-card h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/40 shadow-sm hover:border-[#C897CE] hover:shadow-lg flex flex-col justify-between group transition-all duration-300"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-heading text-2xl font-bold text-[#A56FA8]">
-                    0{idx + 1}.
+        <div ref={desktopContainerRef} className="hidden md:block relative min-h-[520px]">
+          {/* Linha 1 (Base - Família e Cível) */}
+          <div ref={row1Ref} className="grid md:grid-cols-2 gap-6 sm:gap-8 will-change-transform">
+            {topRowAreas.map((area, idx) => (
+              <div
+                key={area.id}
+                className="h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/40 shadow-md flex flex-col justify-between group transition-all duration-300"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-heading text-2xl font-bold text-[var(--accent)]">
+                      0{idx + 1}.
+                    </span>
+                    <div className="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] flex items-center justify-center text-[var(--accent)] group-hover:bg-[var(--accent)] group-hover:text-white transition-colors duration-300 shadow-2xs">
+                      {getAreaIcon(area.iconName)}
+                    </div>
+                  </div>
+
+                  <span className="font-heading text-xs uppercase tracking-wider text-[var(--accent)] font-semibold block mb-1">
+                    {area.highlightText}
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] flex items-center justify-center text-[#A56FA8] group-hover:bg-[#C897CE] group-hover:text-white transition-colors duration-300 shadow-2xs">
-                    {getAreaIcon(area.iconName)}
+
+                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-[var(--text-main)] mb-3 leading-snug">
+                    {area.title}
+                  </h3>
+
+                  <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed mb-6">
+                    {area.shortDesc}
+                  </p>
+
+                  <div className="space-y-2.5 pt-4 border-t border-[var(--border-subtle)]/20">
+                    {area.coverageList.slice(0, 5).map((item, hIdx) => (
+                      <div key={hIdx} className="flex items-start gap-2.5 text-xs sm:text-sm font-body text-[var(--text-main)]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent)] flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                <span className="font-heading text-xs uppercase tracking-wider text-[#A56FA8] font-semibold block mb-1">
-                  Especialidade Prática
-                </span>
-
-                <h3 className="font-heading text-2xl font-bold text-[var(--text-main)] mb-3 leading-snug">
-                  {area.title}
-                </h3>
-
-                <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed mb-5">
-                  {area.casesSummary}
-                </p>
-
-                <div className="space-y-2 pt-4 border-t border-[var(--border-subtle)]/20">
-                  {area.coverageList.map((item, hIdx) => (
-                    <div key={hIdx} className="flex items-start gap-2.5 text-xs sm:text-sm font-body text-[var(--text-main)]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C897CE] flex-shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
+                <div className="pt-6 mt-6 border-t border-[var(--border-subtle)]/25 flex items-center justify-between">
+                  <a
+                    href={`https://wa.me/${OFFICE_INFO.whatsappNumber}?text=Ol%C3%A1%2C%20Dra.%20Aline.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20${encodeURIComponent(area.title)}.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-semibold text-[var(--accent)] hover:text-[var(--text-main)] transition-colors group/link cursor-pointer"
+                  >
+                    <span>Consultar sobre este tema</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                  </a>
                 </div>
               </div>
+            ))}
+          </div>
 
-              <div className="pt-6 mt-6 border-t border-[var(--border-subtle)]/25 flex items-center justify-between">
-                <a
-                  href={`https://wa.me/5541984940372?text=Ol%C3%A1%2C%20Dra.%20Aline.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20${encodeURIComponent(area.title)}.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold text-[#A56FA8] hover:text-[var(--text-main)] transition-colors group/link cursor-pointer"
-                >
-                  <span>Consultar sobre este tema</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                </a>
+          {/* Linha 2 (Sobrepõe a Linha 1 no mesmo espaço vertical - Criminal e Previdenciário) */}
+          <div
+            ref={row2Ref}
+            className="absolute inset-x-0 top-0 z-20 grid md:grid-cols-2 gap-6 sm:gap-8 will-change-transform pointer-events-auto"
+          >
+            {bottomRowAreas.map((area, idx) => (
+              <div
+                key={area.id}
+                className="h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-card)] border-2 border-[var(--accent)]/50 shadow-2xl flex flex-col justify-between group transition-all duration-300"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-heading text-2xl font-bold text-[var(--accent)]">
+                      0{idx + 3}.
+                    </span>
+                    <div className="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] flex items-center justify-center text-[var(--accent)] group-hover:bg-[var(--accent)] group-hover:text-white transition-colors duration-300 shadow-2xs">
+                      {getAreaIcon(area.iconName)}
+                    </div>
+                  </div>
+
+                  <span className="font-heading text-xs uppercase tracking-wider text-[var(--accent)] font-semibold block mb-1">
+                    {area.highlightText}
+                  </span>
+
+                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-[var(--text-main)] mb-3 leading-snug">
+                    {area.title}
+                  </h3>
+
+                  <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed mb-6">
+                    {area.shortDesc}
+                  </p>
+
+                  <div className="space-y-2.5 pt-4 border-t border-[var(--border-subtle)]/20">
+                    {area.coverageList.slice(0, 5).map((item, hIdx) => (
+                      <div key={hIdx} className="flex items-start gap-2.5 text-xs sm:text-sm font-body text-[var(--text-main)]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent)] flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-6 mt-6 border-t border-[var(--border-subtle)]/25 flex items-center justify-between">
+                  <a
+                    href={`https://wa.me/${OFFICE_INFO.whatsappNumber}?text=Ol%C3%A1%2C%20Dra.%20Aline.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20${encodeURIComponent(area.title)}.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-semibold text-[var(--accent)] hover:text-[var(--text-main)] transition-colors group/link cursor-pointer"
+                  >
+                    <span>Consultar sobre este tema</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* ========================================================================= */}
-        {/* MODELO MOBILE (< MD): ACORDEÕES RESUMIDOS SEM CORTAR INFORMAÇÕES          */}
+        {/* MODELO MOBILE: CARDS COM ACCORDION (Sem ocupar espaço excessivo)          */}
         {/* ========================================================================= */}
-        <div className="block md:hidden space-y-3">
+        <div className="md:hidden space-y-4">
           {PRACTICE_AREAS.map((area, idx) => {
             const isExpanded = expandedMobileId === area.id;
 
             return (
               <div
                 key={area.id}
-                className={`rounded-2xl border transition-all duration-300 bg-[var(--bg-card)] overflow-hidden ${
-                  isExpanded ? "border-[#C897CE] shadow-md" : "border-[var(--border-subtle)]/35 shadow-2xs"
+                className={`rounded-2xl bg-[var(--bg-card)] border transition-all duration-300 overflow-hidden ${
+                  isExpanded ? "border-[var(--accent)] shadow-md" : "border-[var(--border-subtle)]/35 shadow-2xs"
                 }`}
               >
-                {/* Linha Resumida Clicável */}
-                <button
-                  type="button"
+                {/* Cabeçalho do Card Mobile */}
+                <div
                   onClick={() => toggleMobileExpand(area.id)}
-                  className="w-full p-4 flex items-center justify-between text-left focus:outline-none cursor-pointer"
-                  aria-expanded={isExpanded}
+                  className="p-5 flex items-start justify-between gap-3 cursor-pointer"
                 >
-                  <div className="flex items-center gap-3 pr-2">
-                    <span className="font-heading text-lg font-bold text-[#A56FA8]">
-                      0{idx + 1}.
-                    </span>
-                    <div>
-                      <h3 className="font-heading text-base font-bold text-[var(--text-main)] leading-snug">
-                        {area.title}
-                      </h3>
-                      <p className="text-[0.6875rem] text-[var(--text-muted)] font-body line-clamp-1 mt-0.5">
-                        {area.shortDesc}
-                      </p>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="font-heading text-sm font-bold text-[var(--accent)]">
+                        0{idx + 1}.
+                      </span>
+                      <span className="font-heading text-[0.6875rem] uppercase tracking-wider text-[var(--text-muted)] font-semibold">
+                        Especialidade
+                      </span>
                     </div>
+                    <h3 className="font-heading text-base font-bold text-[var(--text-main)] leading-snug">
+                      {area.title}
+                    </h3>
                   </div>
 
-                  <div className="w-8 h-8 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center flex-shrink-0 text-[#A56FA8]">
+                  <button
+                    type="button"
+                    aria-label="Expandir detalhes"
+                    className="p-1 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-main)]"
+                  >
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-300 ${
-                        isExpanded ? "rotate-180 text-[#C897CE]" : "rotate-0"
+                      className={`w-5 h-5 transition-transform duration-300 ${
+                        isExpanded ? "rotate-180 text-[var(--accent)]" : "rotate-0"
                       }`}
                     />
-                  </div>
-                </button>
+                  </button>
+                </div>
 
-                {/* Conteúdo Expansível com Detalhes */}
+                {/* Conteúdo Expandido do Card Mobile */}
                 {isExpanded && (
-                  <div className="px-4 pb-5 pt-1 border-t border-[var(--border-subtle)]/20 animate-fade-in-down">
-                    <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
-                      {area.casesSummary}
+                  <div className="px-5 pb-5 pt-1 border-t border-[var(--border-subtle)]/20 space-y-4 animate-fade-in-down">
+                    <p className="font-body text-xs text-[var(--text-muted)] leading-relaxed">
+                      {area.shortDesc}
                     </p>
 
-                    <div className="space-y-2 mb-5">
-                      {area.coverageList.map((item, hIdx) => (
+                    <div className="space-y-2 pt-2">
+                      {area.coverageList.slice(0, 5).map((item, hIdx) => (
                         <div key={hIdx} className="flex items-start gap-2 text-xs font-body text-[var(--text-main)]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#C897CE] flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent)] flex-shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </div>
                       ))}
                     </div>
 
-                    <a
-                      href={`https://wa.me/5541984940372?text=Ol%C3%A1%2C%20Dra.%20Aline.%20Gostaria%20de%20orienta%C3%A7%C3%A3o%20sobre%20${encodeURIComponent(area.title)}.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-pill bg-[#C897CE] text-white w-full py-2.5 text-xs font-semibold shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
-                    >
-                      <span>Falar no WhatsApp sobre {area.title}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
+                    <div className="pt-3 border-t border-[var(--border-subtle)]/20">
+                      <a
+                        href={`https://wa.me/${OFFICE_INFO.whatsappNumber}?text=Ol%C3%A1%2C%20Dra.%20Aline.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20${encodeURIComponent(area.title)}.`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-pill w-full bg-[var(--accent)] text-white font-semibold text-xs py-2.5 gap-1.5 shadow-xs flex items-center justify-center cursor-pointer hover:bg-[var(--accent-hover)]"
+                      >
+                        <span>Tirar dúvidas no WhatsApp</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
                   </div>
                 )}
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );

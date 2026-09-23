@@ -132,12 +132,12 @@ export function About() {
         >
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <span className="bullet-indicator text-[#C897CE]" />
-              <span className="font-heading uppercase text-xs tracking-widest text-[#A56FA8] font-bold">
+              <span className="bullet-indicator text-[var(--accent)]" />
+              <span className="font-heading uppercase text-xs tracking-widest text-[var(--accent)] font-bold">
                 01 / Perfil Profissional & Trajetória
               </span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-semibold">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-bold">
               Sobre a Dra. Aline Pacheco Mikusska
             </h2>
           </div>
@@ -151,7 +151,7 @@ export function About() {
           {/* Coluna de Conteúdo e Textos */}
           <div ref={textContentRef} className="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-start space-y-6">
             <div className="about-text-anim space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C897CE]/15 border border-[#C897CE]/40 text-xs font-heading font-semibold text-[#6D3674] dark:text-[#C897CE]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-xs font-heading font-semibold text-[var(--accent)]">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Advocacia com Escuta Ativa & Resolução Prática</span>
               </div>
@@ -161,7 +161,7 @@ export function About() {
             </div>
 
             {/* Citação de Proposta de Valor */}
-            <div className="about-text-anim p-4 sm:p-5 rounded-2xl bg-[var(--bg-secondary)]/70 border border-[var(--border-subtle)]/30 border-l-4 border-l-[#C897CE] shadow-2xs">
+            <div className="about-text-anim p-4 sm:p-5 rounded-2xl bg-[var(--bg-secondary)]/70 border border-[var(--border-subtle)]/30 border-l-4 border-l-[var(--accent)] shadow-2xs">
               <p className="font-heading italic text-sm sm:text-base text-[var(--text-main)] leading-relaxed">
                 &ldquo;{OFFICE_INFO.slogan}&rdquo;
               </p>
@@ -180,15 +180,15 @@ export function About() {
             {/* Destaques Rápidos */}
             <div className="about-text-anim grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
               <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/30 shadow-2xs">
-                <span className="font-heading text-xs font-bold text-[#A56FA8] block">+9 Anos</span>
+                <span className="font-heading text-xs font-bold text-[var(--accent)] block">+9 Anos</span>
                 <span className="text-[0.6875rem] text-[var(--text-muted)] font-body">Prática Forense Contínua</span>
               </div>
               <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/30 shadow-2xs">
-                <span className="font-heading text-xs font-bold text-[#A56FA8] block">Desde 2020</span>
+                <span className="font-heading text-xs font-bold text-[var(--accent)] block">Desde 2020</span>
                 <span className="text-[0.6875rem] text-[var(--text-muted)] font-body">Escritório no Bairro Alto</span>
               </div>
               <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/30 shadow-2xs col-span-2 sm:col-span-1">
-                <span className="font-heading text-xs font-bold text-[#A56FA8] block">Atendimento Pessoal</span>
+                <span className="font-heading text-xs font-bold text-[var(--accent)] block">Atendimento Pessoal</span>
                 <span className="text-[0.6875rem] text-[var(--text-muted)] font-body">Direto com a fundadora</span>
               </div>
             </div>
@@ -198,13 +198,13 @@ export function About() {
               <button
                 type="button"
                 onClick={handleToggleExpand}
-                className="btn-pill bg-white dark:bg-[#2B182F] text-[var(--text-main)] border-2 border-[#C897CE] hover:bg-[#F5EEF6] hover:border-[#B177B8] gap-2 py-3 px-6 text-xs sm:text-sm font-semibold shadow-xs hover-lift transition-all cursor-pointer flex items-center"
+                className="btn-pill bg-white dark:bg-[#1D0F21] text-[var(--text-main)] border-2 border-[var(--accent)] hover:bg-[var(--accent)] hover:text-white gap-2 py-3 px-6 text-xs sm:text-sm font-semibold shadow-xs hover-lift transition-all cursor-pointer flex items-center"
                 aria-expanded={isExpanded}
               >
                 <span>{isExpanded ? "Ocultar detalhes" : "Conhecer Trajetória & Motivações"}</span>
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-300 ${
-                    isExpanded ? "rotate-180 text-[#C897CE]" : "rotate-0 text-[#C897CE]"
+                    isExpanded ? "rotate-180" : "rotate-0"
                   }`}
                 />
               </button>
@@ -213,7 +213,7 @@ export function About() {
                 href={OFFICE_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill bg-[#C897CE] hover:bg-[#B177B8] text-white gap-2 py-3 px-6 text-xs sm:text-sm shadow-xs hover-lift transition-all flex items-center cursor-pointer"
+                className="btn-pill bg-[#380D3D] hover:bg-[#4E1455] text-white gap-2 py-3 px-6 text-xs sm:text-sm shadow-md hover-lift transition-all flex items-center cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
                 <span>Agendar Consulta</span>
@@ -225,13 +225,13 @@ export function About() {
               <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)]/30 animate-fade-in-down">
                 <div className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/30 shadow-xs space-y-3">
                   <h4 className="font-heading text-base font-bold text-[var(--text-main)] flex items-center gap-2">
-                    <Heart className="w-4 h-4 text-[#C897CE]" />
+                    <Heart className="w-4 h-4 text-[var(--accent)]" />
                     <span>Lado Pessoal & Paixão pela Advocacia</span>
                   </h4>
                   <ul className="space-y-2 text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed">
                     {LAWYER_PROFILE.personalNotes.map((note, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <span className="bullet-indicator text-[#C897CE] mt-1.5" />
+                        <span className="bullet-indicator text-[var(--accent)] mt-1.5" />
                         <span>{note}</span>
                       </li>
                     ))}
@@ -240,7 +240,7 @@ export function About() {
 
                 <div className="space-y-3">
                   <h4 className="font-heading text-base font-bold text-[var(--text-main)] flex items-center gap-2">
-                    <GraduationCap className="w-5 h-5 text-[#A56FA8]" />
+                    <GraduationCap className="w-5 h-5 text-[var(--accent)]" />
                     <span>Experiência Profissional & Destaques de Carreira</span>
                   </h4>
 
@@ -264,7 +264,7 @@ export function About() {
           {/* Coluna da Foto Oficial da Dra. Aline */}
           <div className="lg:col-span-5 order-1 lg:order-2 w-full flex justify-center lg:justify-end">
             <div ref={photoCardRef} className="w-full max-w-[360px] sm:max-w-[400px] will-change-transform">
-              <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden border-2 border-[#C897CE]/80 shadow-2xl hover-lift group bg-[#1A1A1A]">
+              <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden border-2 border-[var(--accent)]/50 shadow-2xl hover-lift group bg-[#1A1A1A]">
                 {/* Feixe de luz suave */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent z-20 pointer-events-none" />
                 <Image
@@ -279,7 +279,7 @@ export function About() {
 
                 {/* Badge Inferior com Nome e Titularidade */}
                 <div className="absolute bottom-5 left-5 right-5 text-white z-10 pointer-events-none">
-                  <span className="text-[0.6875rem] uppercase tracking-widest text-[#C897CE] font-heading font-semibold block mb-1">
+                  <span className="text-[0.6875rem] uppercase tracking-widest text-[#D68CE8] font-heading font-bold block mb-1">
                     Advogada Fundadora
                   </span>
                   <p className="font-heading text-xl sm:text-2xl font-bold leading-tight text-white drop-shadow-sm">
@@ -298,7 +298,7 @@ export function About() {
         <div className="pt-8 border-t border-[var(--border-subtle)]/30">
           <div className="relative flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/25 mb-8 text-[var(--text-muted)]">
             <div className="flex items-center gap-2.5">
-              <Compass className="w-4 h-4 text-[#A56FA8]" />
+              <Compass className="w-4 h-4 text-[var(--accent)]" />
               <span className="font-heading uppercase text-xs tracking-widest font-bold text-[var(--text-main)]">
                 Diretrizes & Princípios Norteadores
               </span>
@@ -314,8 +314,8 @@ export function About() {
           >
             {/* 1. Nossa Missão */}
             <div className="about-pillar-item flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0 first:pt-0 first:pl-0 will-change-transform">
-              <div className="flex items-center gap-2 mb-2 text-[#A56FA8]">
-                <Compass className="w-5 h-5 text-[#A56FA8]" />
+              <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
+                <Compass className="w-5 h-5 text-[var(--accent)]" />
                 <span className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-main)]">
                   Nossa Missão
                 </span>
@@ -330,8 +330,8 @@ export function About() {
 
             {/* 2. Nossa Visão */}
             <div className="about-pillar-item flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0 first:pt-0 will-change-transform">
-              <div className="flex items-center gap-2 mb-2 text-[#A56FA8]">
-                <Eye className="w-5 h-5 text-[#A56FA8]" />
+              <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
+                <Eye className="w-5 h-5 text-[var(--accent)]" />
                 <span className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-main)]">
                   Nossa Visão
                 </span>
@@ -346,8 +346,8 @@ export function About() {
 
             {/* 3. Nossos Valores */}
             <div className="about-pillar-item flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0 first:pt-0 will-change-transform">
-              <div className="flex items-center gap-2 mb-2 text-[#A56FA8]">
-                <ShieldCheck className="w-5 h-5 text-[#A56FA8]" />
+              <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
+                <ShieldCheck className="w-5 h-5 text-[var(--accent)]" />
                 <span className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-main)]">
                   Nossos Valores
                 </span>

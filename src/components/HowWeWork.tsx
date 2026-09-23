@@ -117,12 +117,12 @@ export function HowWeWork() {
         >
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <span className="bullet-indicator text-[#C897CE]" />
-              <span className="font-heading uppercase text-xs tracking-widest text-[#A56FA8] font-bold">
+              <span className="bullet-indicator text-[var(--accent)]" />
+              <span className="font-heading uppercase text-xs tracking-widest text-[var(--accent)] font-bold">
                 03 / Clareza & Procedimento
               </span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-semibold">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-bold">
               Como Funciona Nosso Atendimento
             </h2>
           </div>
@@ -136,10 +136,10 @@ export function HowWeWork() {
           {/* Linha guia de fundo */}
           <div className="hidden lg:block absolute top-12 left-8 right-8 h-[2px] bg-[var(--border-subtle)]/25 -z-10" />
 
-          {/* Linha de progresso Lilás conectora */}
+          {/* Linha de progresso Roxo Profundo conectora */}
           <div
             ref={progressBarRef}
-            className="hidden lg:block absolute top-12 left-8 right-8 h-[2px] bg-gradient-to-r from-[#A56FA8] via-[#C897CE] to-[#B177B8] -z-10 will-change-transform"
+            className="hidden lg:block absolute top-12 left-8 right-8 h-[2px] bg-gradient-to-r from-[var(--brand-purple-dark)] via-[var(--accent)] to-[var(--brand-purple-light)] -z-10 will-change-transform"
           />
 
           {/* 4 Passos Estruturados */}
@@ -147,21 +147,21 @@ export function HowWeWork() {
             {WORK_STEPS.map((step, idx) => (
               <div
                 key={idx}
-                className="step-card-item h-full p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 shadow-xs flex flex-col justify-between relative group hover:border-[#C897CE] hover:shadow-md hover-lift transition-all duration-300 will-change-transform"
+                className="step-card-item h-full p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 shadow-xs flex flex-col justify-between relative group hover:border-[var(--accent)] hover:shadow-md hover-lift transition-all duration-300 will-change-transform"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-[var(--bg-secondary)] flex items-center justify-center border border-[#C897CE]/40 group-hover:bg-[#C897CE] group-hover:text-white transition-all duration-300 shadow-2xs">
-                      <span className="font-heading text-xl font-bold text-[#A56FA8] group-hover:text-white transition-colors">
+                    <div className="w-11 h-11 rounded-xl bg-[var(--bg-secondary)] flex items-center justify-center border border-[var(--border-subtle)] group-hover:bg-[var(--accent)] group-hover:text-white transition-all duration-300 shadow-2xs">
+                      <span className="font-heading text-xl font-bold text-[var(--accent)] group-hover:text-white transition-colors">
                         {step.number}
                       </span>
                     </div>
                     {idx < WORK_STEPS.length - 1 && (
-                      <ArrowRight className="hidden lg:block w-4 h-4 text-[var(--border-subtle)]/60 group-hover:translate-x-1 group-hover:text-[#A56FA8] transition-all" />
+                      <ArrowRight className="hidden lg:block w-4 h-4 text-[var(--border-subtle)]/60 group-hover:translate-x-1 group-hover:text-[var(--accent)] transition-all" />
                     )}
                   </div>
 
-                  <span className="font-heading text-xs uppercase tracking-wider text-[#A56FA8] font-semibold block mb-1">
+                  <span className="font-heading text-xs uppercase tracking-wider text-[var(--accent)] font-semibold block mb-1">
                     {step.subtitle}
                   </span>
 
@@ -183,7 +183,7 @@ export function HowWeWork() {
             href={OFFICE_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-pill bg-[#C897CE] hover:bg-[#B177B8] text-white gap-2 shadow-xs text-sm inline-flex items-center cursor-pointer"
+            className="btn-pill bg-[#380D3D] hover:bg-[#4E1455] text-white gap-2 shadow-md text-sm inline-flex items-center cursor-pointer"
           >
             <MessageSquare className="w-4 h-4 fill-white" />
             <span>Falar com a Dra. Aline via WhatsApp</span>
